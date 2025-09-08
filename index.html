@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DFC E-commerce Dashboard</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet">
+</head>
+<body class="bg-gray-50 font-sans text-gray-900 antialiased">
+    <!-- Top Header -->
+    <header class="bg-white shadow-md p-4 flex justify-between items-center fixed w-full z-10">
+        <div class="flex items-center space-x-4">
+            <button id="sidebar-toggle" class="text-gray-600 focus:outline-none">
+                <svg class="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                </svg>
+            </button>
+            <div class="text-xl font-bold text-indigo-600">Reliance Jewels</div>
+        </div>
+        <div class="flex items-center space-x-4">
+            <span class="text-sm text-gray-600 hidden sm:inline">Welcome, RIL Jewels!</span>
+            <select class="bg-gray-100 text-gray-800 rounded px-3 py-1 text-sm border border-gray-300">
+                <option>Reliance Retail Ltd - Jewels Mumbai</option>
+            </select>
+            <a href="#" class="text-indigo-600 hover:text-indigo-800"><i class="fas fa-home"></i></a>
+            <a href="#" class="text-indigo-600 hover:text-indigo-800"><i class="fas fa-sign-out-alt"></i></a>
+        </div>
+    </header>
+
+    <!-- Sidebar -->
+    <aside id="sidebar" class="bg-indigo-800 text-white w-64 p-6 fixed inset-y-0 left-0 transition-transform duration-300 ease-in-out z-20 mt-16 overflow-y-auto">
+        <ul class="space-y-2 mt-8">
+            <li>
+                <a href="#" class="flex items-center py-3 px-4 rounded-lg bg-indigo-900 text-white">
+                    <i class="fas fa-tachometer-alt mr-3"></i> Dashboard
+                </a>
+            </li>
+            <li>
+                <a href="#" class="flex items-center py-3 px-4 rounded-lg hover:bg-indigo-700">
+                    <i class="fas fa-cog mr-3"></i> Configuration
+                </a>
+            </li>
+            <li>
+                <a href="#" class="flex items-center py-3 px-4 rounded-lg hover:bg-indigo-700">
+                    <i class="fas fa-box mr-3"></i> Inventory
+                </a>
+            </li>
+            <li>
+                <a href="#" class="flex items-center py-3 px-4 rounded-lg hover:bg-indigo-700">
+                    <i class="fas fa-shopping-cart mr-3"></i> Orders
+                </a>
+            </li>
+            <li>
+                <a href="#" class="flex items-center py-3 px-4 rounded-lg hover:bg-indigo-700">
+                    <i class="fas fa-truck mr-3"></i> Shipment
+                </a>
+            </li>
+            <li>
+                <a href="#" class="flex items-center py-3 px-4 rounded-lg hover:bg-indigo-700">
+                    <i class="fas fa-chart-bar mr-3"></i> Reports
+                </a>
+            </li>
+            <li>
+                <a href="#" class="flex items-center py-3 px-4 rounded-lg hover:bg-indigo-700">
+                    <i class="fas fa-search mr-3"></i> Search
+                </a>
+            </li>
+            <li>
+                <a href="#" class="flex items-center py-3 px-4 rounded-lg hover:bg-indigo-700">
+                    <i class="fas fa-question-circle mr-3"></i> Help
+                </a>
+            </li>
+        </ul>
+    </aside>
+
+    <!-- Main Content -->
+    <main id="main-content" class="pt-20 p-6 transition-margin duration-300 ease-in-out lg:ml-64">
+        <!-- Today's Stats -->
+        <section class="mb-8">
+            <h2 class="text-2xl font-bold text-gray-800 mb-4">Today's Stats</h2>
+            <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-6">
+                <div class="bg-white p-6 rounded-xl shadow-lg hover:shadow-xl transition-shadow duration-300 text-center">
+                    <div class="text-3xl font-bold text-blue-500">0</div>
+                    <div class="text-base text-gray-600 mt-2">New Orders</div>
+                </div>
+                <div class="bg-white p-6 rounded-xl shadow-lg hover:shadow-xl transition-shadow duration-300 text-center">
+                    <div class="text-3xl font-bold text-green-500">0</div>
+                    <div class="text-base text-gray-600 mt-2">Handed to Courier</div>
+                </div>
+                <div class="bg-white p-6 rounded-xl shadow-lg hover:shadow-xl transition-shadow duration-300 text-center">
+                    <div class="text-3xl font-bold text-orange-500">0</div>
+                    <div class="text-base text-gray-600 mt-2">Shipped</div>
+                </div>
+                <div class="bg-white p-6 rounded-xl shadow-lg hover:shadow-xl transition-shadow duration-300 text-center">
+                    <div class="text-3xl font-bold text-red-500">0</div>
+                    <div class="text-base text-gray-600 mt-2">Cancelled</div>
+                </div>
+                <div class="bg-white p-6 rounded-xl shadow-lg hover:shadow-xl transition-shadow duration-300 text-center">
+                    <div class="text-3xl font-bold text-purple-500">0</div>
+                    <div class="text-base text-gray-600 mt-2">ORTV</div>
+                </div>
+                <div class="bg-white p-6 rounded-xl shadow-lg hover:shadow-xl transition-shadow duration-300 text-center">
+                    <div class="text-3xl font-bold text-yellow-500">0</div>
+                    <div class="text-base text-gray-600 mt-2">Returns</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Current Status -->
+        <section class="mb-8">
+            <h2 class="text-2xl font-bold text-gray-800 mb-4">Current Status</h2>
+            <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-6">
+                <div class="bg-white p-6 rounded-xl shadow-lg hover:shadow-xl transition-shadow duration-300 text-center">
+                    <div class="text-3xl font-bold text-blue-500">0</div>
+                    <div class="text-base text-gray-600 mt-2">Vendor Pending</div>
+                </div>
+                <div class="bg-white p-6 rounded-xl shadow-lg hover:shadow-xl transition-shadow duration-300 text-center">
+                    <div class="text-3xl font-bold text-green-500">0</div>
+                    <div class="text-base text-gray-600 mt-2">Verified</div>
+                </div>
+                <div class="bg-white p-6 rounded-xl shadow-lg hover:shadow-xl transition-shadow duration-300 text-center">
+                    <div class="text-3xl font-bold text-orange-500">0</div>
+                    <div class="text-base text-gray-600 mt-2">Manifested</div>
+                </div>
+                <div class="bg-white p-6 rounded-xl shadow-lg hover:shadow-xl transition-shadow duration-300 text-center">
+                    <div class="text-3xl font-bold text-purple-500">0</div>
+                    <div class="text-base text-gray-600 mt-2">Handed to Courier</div>
+                </div>
+                <div class="bg-white p-6 rounded-xl shadow-lg hover:shadow-xl transition-shadow duration-300 text-center">
+                    <div class="text-3xl font-bold text-red-500">0</div>
+                    <div class="text-base text-gray-600 mt-2">ORTV Pending</div>
+                </div>
+                <div class="bg-white p-6 rounded-xl shadow-lg hover:shadow-xl transition-shadow duration-300 text-center">
+                    <div class="text-3xl font-bold text-yellow-500">0</div>
+                    <div class="text-base text-gray-600 mt-2">Disputes</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Trends and Status -->
+        <section class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
+            <div class="bg-white p-6 rounded-xl shadow-lg hover:shadow-xl transition-shadow duration-300">
+                <h3 class="text-xl font-bold text-gray-800 mb-4">Execution Trend (7 Days)</h3>
+                <div class="h-64 bg-gray-100 flex items-center justify-center text-gray-500 rounded-lg">Chart Placeholder</div>
+            </div>
+            <div class="bg-white p-6 rounded-xl shadow-lg hover:shadow-xl transition-shadow duration-300">
+                <h3 class="text-xl font-bold text-gray-800 mb-4">Shipment Overview</h3>
+                <div class="h-64 bg-gray-100 flex items-center justify-center text-gray-500 rounded-lg">Chart Placeholder</div>
+            </div>
+        </section>
+
+        <!-- Expected RTO and Pending Tasks -->
+        <section class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
+            <div class="bg-white p-6 rounded-xl shadow-lg hover:shadow-xl transition-shadow duration-300">
+                <h3 class="text-xl font-bold text-gray-800 mb-4">Expected RTO</h3>
+                <div class="h-64 bg-gray-100 flex items-center justify-center text-gray-500 rounded-lg">Chart Placeholder</div>
+            </div>
+            <div class="bg-white p-6 rounded-xl shadow-lg hover:shadow-xl transition-shadow duration-300">
+                <h3 class="text-xl font-bold text-gray-800 mb-4">Pending Tasks</h3>
+                <div class="h-64 bg-gray-100 flex items-center justify-center text-gray-500 rounded-lg">Chart Placeholder</div>
+            </div>
+        </section>
+
+        <!-- Shipment Trend -->
+        <section class="bg-white p-6 rounded-xl shadow-lg hover:shadow-xl transition-shadow duration-300 mb-8">
+            <div class="flex justify-between items-center mb-4">
+                <h3 class="text-xl font-bold text-gray-800">Shipment Trends</h3>
+                <div class="flex items-center space-x-2">
+                    <span class="text-sm text-gray-600">View:</span>
+                    <select class="bg-gray-100 border border-gray-300 rounded px-3 py-1 text-sm">
+                        <option>Days</option>
+                    </select>
+                    <select class="bg-gray-100 border border-gray-300 rounded px-3 py-1 text-sm">
+                        <option>All Orders</option>
+                    </select>
+                </div>
+            </div>
+            <div class="h-64 bg-gray-100 flex items-center justify-center text-gray-500 rounded-lg">Chart Placeholder</div>
+            <div class="text-xs text-gray-500 mt-4">Updated: 08:12 PM IST, Sep 08, 2025</div>
+            <div class="flex flex-wrap justify-center space-x-4 mt-4 text-sm">
+                <span class="text-red-500 flex items-center"><i class="fas fa-circle mr-1 text-xs"></i> Cancelled</span>
+                <span class="text-orange-500 flex items-center"><i class="fas fa-circle mr-1 text-xs"></i> Shipped</span>
+                <span class="text-green-500 flex items-center"><i class="fas fa-circle mr-1 text-xs"></i> Gate Pass</span>
+                <span class="text-purple-500 flex items-center"><i class="fas fa-circle mr-1 text-xs"></i> Cargo Ready</span>
+                <span class="text-yellow-500 flex items-center"><i class="fas fa-circle mr-1 text-xs"></i> Verified</span>
+            </div>
+        </section>
+
+        <!-- Vendor Monthly Overview -->
+        <section class="bg-white p-6 rounded-xl shadow-lg hover:shadow-xl transition-shadow duration-300">
+            <h3 class="text-xl font-bold text-gray-800 mb-4">Vendor Monthly Overview</h3>
+            <div class="overflow-x-auto">
+                <table class="w-full border-collapse min-w-max">
+                    <thead>
+                        <tr class="bg-gray-100">
+                            <th class="p-3 text-left text-sm font-semibold text-gray-700">Month</th>
+                            <th class="p-3 text-left text-sm font-semibold text-gray-700">Gate Pass</th>
+                            <th class="p-3 text-left text-sm font-semibold text-gray-700">Delivered</th>
+                            <th class="p-3 text-left text-sm font-semibold text-gray-700">RTO</th>
+                            <th class="p-3 text-left text-sm font-semibold text-gray-700">ORTV</th>
+                            <th class="p-3 text-left text-sm font-semibold text-gray-700">Shipped</th>
+                            <th class="p-3 text-left text-sm font-semibold text-gray-700">Returns</th>
+                            <th class="p-3 text-left text-sm font-semibold text-gray-700">Cancelled</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td colspan="8" class="p-3 text-center text-gray-500">No records found.</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-white shadow-md p-4 text-center text-sm text-gray-600 mt-8 transition-margin duration-300 ease-in-out lg:ml-64">
+        © 2025 Reliance Jewels. All rights reserved.
+    </footer>
+
+    <!-- JavaScript for Sidebar Toggle -->
+    <script>
+        const sidebarToggle = document.getElementById('sidebar-toggle');
+        const sidebar = document.getElementById('sidebar');
+        const mainContent = document.getElementById('main-content');
+        const footer = document.querySelector('footer');
+
+        // Set sidebar to open by default
+        sidebar.classList.remove('-translate-x-full');
+        mainContent.classList.add('lg:ml-64');
+        footer.classList.add('lg:ml-64');
+
+        function toggleSidebar() {
+            sidebar.classList.toggle('-translate-x-full');
+            mainContent.classList.toggle('lg:ml-0', sidebar.classList.contains('-translate-x-full'));
+            mainContent.classList.toggle('lg:ml-64', !sidebar.classList.contains('-translate-x-full'));
+            footer.classList.toggle('lg:ml-0', sidebar.classList.contains('-translate-x-full'));
+            footer.classList.toggle('lg:ml-64', !sidebar.classList.contains('-translate-x-full'));
+        }
+
+        sidebarToggle.addEventListener('click', toggleSidebar);
+
+        // Close sidebar on outside click for mobile
+        document.addEventListener('click', (event) => {
+            if (!sidebar.contains(event.target) && !sidebarToggle.contains(event.target) && window.innerWidth < 1024) {
+                if (!sidebar.classList.contains('-translate-x-full')) {
+                    toggleSidebar();
+                }
+            }
+        });
+    </script>
+</body>
+</html>
