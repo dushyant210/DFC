@@ -12,63 +12,67 @@
                 display: none;
             }
         }
-        aside {
+        #sidebar {
             border-top-right-radius: 7rem;
         }
     </style>
 </head>
 <body class="bg-gray-50 font-sans text-gray-900 antialiased">
-    <!-- Sidebar -->
-    <aside id="sidebar" class="bg-indigo-800 text-white w-64 p-6 fixed inset-y-0 left-0 transition-transform duration-300 ease-in-out z-20 overflow-y-auto">
-        <div class="flex items-center justify-between mb-6">
-            <div class="text-xl font-bold text-indigo-600">StoreOs</div>
-            <div class="flex items-center space-x-4">
-                <span class="text-sm text-gray-600 hidden sm:inline">Welcome, RIL Jewels!</span>
-                <select class="bg-gray-100 text-gray-800 rounded px-3 py-1 text-sm border border-gray-300">
-                    <option>Reliance Retail Ltd - Jewels Mumbai</option>
-                </select>
-                <a href="#" class="text-indigo-600 hover:text-indigo-800"><i class="fas fa-home"></i></a>
-                <a href="#" class="text-indigo-600 hover:text-indigo-800"><i class="fas fa-sign-out-alt"></i> Logout</a>
-            </div>
+    <!-- Top Header -->
+    <header class="bg-white shadow-md px-4 py-1 flex justify-between items-center fixed w-full z-10">
+        <div class="flex items-center space-x-4">
+            <img src="Logos.png" alt="StoreOs Logo" class="h-14">
         </div>
-        <ul class="space-y-2 mt-8">
+        <div class="flex items-center space-x-4">
+            <span class="text-sm text-gray-600 hidden sm:inline">Welcome, RIL Jewels!</span>
+            <select class="bg-gray-100 text-gray-800 rounded px-3 py-1 text-sm border border-gray-300">
+                <option>Reliance Retail Ltd - Jewels Mumbai</option>
+            </select>
+            <a href="#" class="text-indigo-600 hover:text-indigo-800"><i class="fas fa-home"></i></a>
+            <a href="#" class="text-indigo-600 hover:text-indigo-800"><i class="fas fa-sign-out-alt"></i></a>
+        </div>
+    </header>
+
+    <!-- Sidebar -->
+    <aside id="sidebar" class="bg-indigo-800 text-white w-64 p-6 fixed inset-y-0 left-0 transition-transform duration-300 ease-in-out z-20 mt-16 overflow-y-auto">
+        <ul class="space-y-6 mt-8">
             <li>
-                <a href="#" class="flex items-center py-3 px-4 rounded-lg bg-indigo-900 text-white">
+                <a href="#" class="flex items-center py-3 px-4 rounded-lg bg-indigo-900 text-white pt-2">
                     <i class="fas fa-tachometer-alt mr-3"></i> Dashboard
                 </a>
             </li>
             <li>
-                <a href="Configuration.html" class="flex items-center py-3 px-4 rounded-lg hover:bg-indigo-700">
+                <a href="Configuration.html" class="flex items-center py-3 px-4 rounded-lg hover:bg-indigo-700 pt-2">
                     <i class="fas fa-cog mr-3"></i> Configuration
                 </a>
             </li>
             <li>
-                <a href="#" class="flex items-center py-3 px-4 rounded-lg hover:bg-indigo-700">
+                <a href="#" class="flex items-center py-3 px-4 rounded-lg hover:bg-indigo-700 pt-2">
                     <i class="fas fa-box mr-3"></i> Inventory
                 </a>
             </li>
             <li>
-                <a href="#" class="flex items-center py-3 px-4 rounded-lg hover:bg-indigo-700">
+                <a href="#" class="flex items-center py-3 px-4 rounded-lg hover:bg-indigo-700 pt-2">
                     <i class="fas fa-shopping-cart mr-3"></i> Orders
                 </a>
             </li>
             <li>
-                <a href="#" class="flex items-center py-3 px-4 rounded-lg hover:bg-indigo-700">
+                <a href="#" class="flex items-center py-3 px-4 rounded-lg hover:bg-indigo-700 pt-2">
                     <i class="fas fa-truck mr-3"></i> Shipment
                 </a>
             </li>
             <li>
-                <a href="#" class="flex items-center py-3 px-4 rounded-lg hover:bg-indigo-700">
+                <a href="#" class="flex items-center py-3 px-4 rounded-lg hover:bg-indigo-700 pt-2">
                     <i class="fas fa-chart-bar mr-3"></i> Reports
                 </a>
             </li>
             <li>
-                <a href="#" class="flex items-center py-3 px-4 rounded-lg hover:bg-indigo-700">
+                <a href="#" class="flex items-center py-3 px-4 rounded-lg hover:bg-indigo-700 pt-2">
                     <i class="fas fa-search mr-3"></i> Search
                 </a>
             </li>
             <li>
-                <a href="#" class="flex items-center py-3 px-4 rounded-lg hover:bg-indigo-700">
+                <a href="#" class="flex items-center py-3 px-4 rounded-lg hover:bg-indigo-700 pt-2">
                     <i class="fas fa-question-circle mr-3"></i> Help
                 </a>
             </li>
@@ -178,7 +182,7 @@
                 </div>
             </div>
             <div class="h-64 bg-gray-100 flex items-center justify-center text-gray-500 rounded-lg">Chart Placeholder</div>
-            <div class="text-xs text-gray-500 mt-4">Updated: 10:16 AM IST, Sep 14, 2025</div>
+            <div class="text-xs text-gray-500 mt-4">Updated: 03:56 AM IST, Sep 15, 2025</div>
             <div class="flex flex-wrap justify-center space-x-4 mt-4 text-sm">
                 <span class="text-red-500 flex items-center"><i class="fas fa-circle mr-1 text-xs"></i> Cancelled</span>
                 <span class="text-orange-500 flex items-center"><i class="fas fa-circle mr-1 text-xs"></i> Shipped</span>
@@ -220,4 +224,6 @@
         © 2025 StoreOs. All rights reserved.
     </footer>
 </body>
+
+
 </html>
