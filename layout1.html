@@ -1,0 +1,543 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DFC E-commerce Dashboard</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        'inter': ['Inter', 'sans-serif'],
+                    },
+                    colors: {
+                        'primary': {
+                            50: '#f5f3ff',
+                            100: '#ede9fe',
+                            200: '#ddd6fe',
+                            300: '#c4b5fd',
+                            400: '#a78bfa',
+                            500: '#8b5cf6',
+                            600: '#7c3aed',
+                            700: '#6d28d9',
+                            800: '#5b21b6',
+                            900: '#4c1d95'
+                        },
+                        'orange': {
+                            400: '#fb923c',
+                            500: '#f97316',
+                            600: '#ea580c'
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+        .sidebar-shadow {
+            box-shadow: 2px 0 10px rgba(0, 0, 0, 0.1);
+        }
+        .card-shadow {
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+        }
+        .card-shadow:hover {
+            box-shadow: 0 3px 6px rgba(0, 0, 0, 0.15), 0 2px 4px rgba(0, 0, 0, 0.12);
+        }
+        .transition-smooth {
+            transition: all 0.2s ease-in-out;
+        }
+    </style>
+</head>
+<body class="bg-gray-50 font-inter text-gray-800 antialiased">
+    <!-- Header -->
+    <header class="bg-white shadow-sm border-b border-gray-200 fixed w-full z-10 top-0">
+        <div class="px-4 py-3 flex justify-between items-center">
+            <div class="flex items-center space-x-3">
+                <button id="sidebar-toggle" class="p-2 rounded-md text-gray-600 hover:text-primary-700 hover:bg-primary-50 transition-smooth">
+                    <svg class="h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                    </svg>
+                </button>
+                <div class="flex items-center space-x-2">
+                    <div class="w-7 h-7 bg-orange-500 rounded-lg flex items-center justify-center">
+                        <i class="fas fa-gem text-white text-sm"></i>
+                    </div>
+                    <span class="text-lg font-semibold text-gray-800">StoreOs</span>
+                </div>
+            </div>
+            
+            <div class="flex items-center space-x-3">
+                <span class="text-sm text-gray-600 hidden sm:inline">Welcome, RIL Jewels!</span>
+                <select class="bg-gray-100 border border-gray-300 rounded-md px-3 py-1.5 text-sm text-gray-700 focus:outline-none focus:ring-2 focus:ring-primary-500">
+                    <option>Reliance Retail Ltd - Jewels Mumbai</option>
+                </select>
+                <button class="p-2 rounded-md text-gray-600 hover:text-primary-700 hover:bg-primary-50 transition-smooth">
+                    <i class="fas fa-bell text-sm"></i>
+                </button>
+                <button class="p-2 rounded-md text-gray-600 hover:text-primary-700 hover:bg-primary-50 transition-smooth">
+                    <i class="fas fa-user-circle text-sm"></i>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Sidebar -->
+    <aside id="sidebar" class="bg-primary-800 text-white sidebar-shadow w-64 fixed inset-y-0 left-0 transition-transform duration-300 ease-in-out z-20 mt-16 overflow-y-auto">
+        <nav class="p-4">
+            <ul class="space-y-1">
+                <li>
+                    <a href="#" class="flex items-center py-2.5 px-3 rounded-md bg-primary-700 text-white">
+                        <i class="fas fa-chart-line text-sm mr-3"></i>
+                        <span class="text-sm font-medium">Dashboard</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="#" class="flex items-center py-2.5 px-3 rounded-md text-primary-200 hover:bg-primary-700 hover:text-white transition-smooth">
+                        <i class="fas fa-cog text-sm mr-3"></i>
+                        <span class="text-sm font-medium">Configuration</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="#" class="flex items-center py-2.5 px-3 rounded-md text-primary-200 hover:bg-primary-700 hover:text-white transition-smooth">
+                        <i class="fas fa-boxes text-sm mr-3"></i>
+                        <span class="text-sm font-medium">Inventory</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="#" class="flex items-center py-2.5 px-3 rounded-md text-primary-200 hover:bg-primary-700 hover:text-white transition-smooth">
+                        <i class="fas fa-shopping-bag text-sm mr-3"></i>
+                        <span class="text-sm font-medium">Orders</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="#" class="flex items-center py-2.5 px-3 rounded-md text-primary-200 hover:bg-primary-700 hover:text-white transition-smooth">
+                        <i class="fas fa-truck text-sm mr-3"></i>
+                        <span class="text-sm font-medium">Shipment</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="#" class="flex items-center py-2.5 px-3 rounded-md text-primary-200 hover:bg-primary-700 hover:text-white transition-smooth">
+                        <i class="fas fa-chart-bar text-sm mr-3"></i>
+                        <span class="text-sm font-medium">Reports</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="#" class="flex items-center py-2.5 px-3 rounded-md text-primary-200 hover:bg-primary-700 hover:text-white transition-smooth">
+                        <i class="fas fa-search text-sm mr-3"></i>
+                        <span class="text-sm font-medium">Search</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="#" class="flex items-center py-2.5 px-3 rounded-md text-primary-200 hover:bg-primary-700 hover:text-white transition-smooth">
+                        <i class="fas fa-question-circle text-sm mr-3"></i>
+                        <span class="text-sm font-medium">Help</span>
+                    </a>
+                </li>
+            </ul>
+        </nav>
+    </aside>
+
+    <!-- Main Content -->
+    <main id="main-content" class="pt-16 transition-all duration-300 ease-in-out lg:ml-64">
+        <div class="p-6">
+            <!-- Today's Stats -->
+            <section class="mb-8">
+                <div class="flex items-center justify-between mb-4">
+                    <h1 class="text-xl font-semibold text-gray-900">Today's Stats</h1>
+                    <div class="text-xs text-gray-500">Last updated: 2 min ago</div>
+                </div>
+                
+                <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4">
+                    <div class="bg-white p-4 rounded-lg card-shadow transition-smooth">
+                        <div class="flex items-center justify-between">
+                            <div>
+                                <div class="text-2xl font-semibold text-blue-600">0</div>
+                                <div class="text-sm text-gray-600 mt-1">New Orders</div>
+                            </div>
+                            <div class="w-8 h-8 bg-blue-100 rounded-lg flex items-center justify-center">
+                                <i class="fas fa-plus text-blue-600 text-sm"></i>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="bg-white p-4 rounded-lg card-shadow transition-smooth">
+                        <div class="flex items-center justify-between">
+                            <div>
+                                <div class="text-2xl font-semibold text-green-600">0</div>
+                                <div class="text-sm text-gray-600 mt-1">Handed to Courier</div>
+                            </div>
+                            <div class="w-8 h-8 bg-green-100 rounded-lg flex items-center justify-center">
+                                <i class="fas fa-handshake text-green-600 text-sm"></i>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="bg-white p-4 rounded-lg card-shadow transition-smooth">
+                        <div class="flex items-center justify-between">
+                            <div>
+                                <div class="text-2xl font-semibold text-orange-600">0</div>
+                                <div class="text-sm text-gray-600 mt-1">Shipped</div>
+                            </div>
+                            <div class="w-8 h-8 bg-orange-100 rounded-lg flex items-center justify-center">
+                                <i class="fas fa-truck text-orange-600 text-sm"></i>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="bg-white p-4 rounded-lg card-shadow transition-smooth">
+                        <div class="flex items-center justify-between">
+                            <div>
+                                <div class="text-2xl font-semibold text-red-600">0</div>
+                                <div class="text-sm text-gray-600 mt-1">Cancelled</div>
+                            </div>
+                            <div class="w-8 h-8 bg-red-100 rounded-lg flex items-center justify-center">
+                                <i class="fas fa-times text-red-600 text-sm"></i>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="bg-white p-4 rounded-lg card-shadow transition-smooth">
+                        <div class="flex items-center justify-between">
+                            <div>
+                                <div class="text-2xl font-semibold text-purple-600">0</div>
+                                <div class="text-sm text-gray-600 mt-1">ORTV</div>
+                            </div>
+                            <div class="w-8 h-8 bg-purple-100 rounded-lg flex items-center justify-center">
+                                <i class="fas fa-undo text-purple-600 text-sm"></i>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="bg-white p-4 rounded-lg card-shadow transition-smooth">
+                        <div class="flex items-center justify-between">
+                            <div>
+                                <div class="text-2xl font-semibold text-yellow-600">0</div>
+                                <div class="text-sm text-gray-600 mt-1">Returns</div>
+                            </div>
+                            <div class="w-8 h-8 bg-yellow-100 rounded-lg flex items-center justify-center">
+                                <i class="fas fa-undo-alt text-yellow-600 text-sm"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Current Status -->
+            <section class="mb-8">
+                <div class="flex items-center justify-between mb-4">
+                    <h2 class="text-xl font-semibold text-gray-900">Current Status</h2>
+                    <button class="px-3 py-1.5 bg-orange-500 text-white text-sm rounded-md hover:bg-orange-600 transition-smooth">
+                        Refresh
+                    </button>
+                </div>
+                
+                <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4">
+                    <div class="bg-white p-4 rounded-lg card-shadow transition-smooth">
+                        <div class="text-center">
+                            <div class="w-10 h-10 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-3">
+                                <i class="fas fa-clock text-blue-600 text-sm"></i>
+                            </div>
+                            <div class="text-2xl font-semibold text-blue-600 mb-1">0</div>
+                            <div class="text-sm text-gray-600">Vendor Pending</div>
+                        </div>
+                    </div>
+
+                    <div class="bg-white p-4 rounded-lg card-shadow transition-smooth">
+                        <div class="text-center">
+                            <div class="w-10 h-10 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-3">
+                                <i class="fas fa-check text-green-600 text-sm"></i>
+                            </div>
+                            <div class="text-2xl font-semibold text-green-600 mb-1">0</div>
+                            <div class="text-sm text-gray-600">Verified</div>
+                        </div>
+                    </div>
+
+                    <div class="bg-white p-4 rounded-lg card-shadow transition-smooth">
+                        <div class="text-center">
+                            <div class="w-10 h-10 bg-orange-100 rounded-full flex items-center justify-center mx-auto mb-3">
+                                <i class="fas fa-list text-orange-600 text-sm"></i>
+                            </div>
+                            <div class="text-2xl font-semibold text-orange-600 mb-1">0</div>
+                            <div class="text-sm text-gray-600">Manifested</div>
+                        </div>
+                    </div>
+
+                    <div class="bg-white p-4 rounded-lg card-shadow transition-smooth">
+                        <div class="text-center">
+                            <div class="w-10 h-10 bg-purple-100 rounded-full flex items-center justify-center mx-auto mb-3">
+                                <i class="fas fa-truck text-purple-600 text-sm"></i>
+                            </div>
+                            <div class="text-2xl font-semibold text-purple-600 mb-1">0</div>
+                            <div class="text-sm text-gray-600">Handed to Courier</div>
+                        </div>
+                    </div>
+
+                    <div class="bg-white p-4 rounded-lg card-shadow transition-smooth">
+                        <div class="text-center">
+                            <div class="w-10 h-10 bg-red-100 rounded-full flex items-center justify-center mx-auto mb-3">
+                                <i class="fas fa-exclamation-triangle text-red-600 text-sm"></i>
+                            </div>
+                            <div class="text-2xl font-semibold text-red-600 mb-1">0</div>
+                            <div class="text-sm text-gray-600">ORTV Pending</div>
+                        </div>
+                    </div>
+
+                    <div class="bg-white p-4 rounded-lg card-shadow transition-smooth">
+                        <div class="text-center">
+                            <div class="w-10 h-10 bg-yellow-100 rounded-full flex items-center justify-center mx-auto mb-3">
+                                <i class="fas fa-gavel text-yellow-600 text-sm"></i>
+                            </div>
+                            <div class="text-2xl font-semibold text-yellow-600 mb-1">0</div>
+                            <div class="text-sm text-gray-600">Disputes</div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Charts Section -->
+            <section class="grid grid-cols-1 xl:grid-cols-2 gap-6 mb-8">
+                <div class="bg-white p-6 rounded-lg card-shadow transition-smooth">
+                    <div class="flex items-center justify-between mb-4">
+                        <h3 class="text-lg font-semibold text-gray-900">Execution Trend (7 Days)</h3>
+                        <div class="flex items-center space-x-2 text-xs text-gray-500">
+                            <div class="w-2 h-2 bg-green-500 rounded-full"></div>
+                            <span>Live</span>
+                        </div>
+                    </div>
+                    <div class="h-64 bg-gray-50 rounded-lg flex items-center justify-center border border-gray-200">
+                        <div class="text-center">
+                            <i class="fas fa-chart-line text-3xl text-gray-400 mb-3"></i>
+                            <div class="text-gray-600 font-medium">Chart Visualization</div>
+                            <div class="text-gray-500 text-sm mt-1">Analytics data will appear here</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bg-white p-6 rounded-lg card-shadow transition-smooth">
+                    <div class="flex items-center justify-between mb-4">
+                        <h3 class="text-lg font-semibold text-gray-900">Shipment Overview</h3>
+                        <button class="px-3 py-1 bg-gray-100 text-gray-700 rounded-md text-xs font-medium hover:bg-gray-200 transition-smooth">
+                            Today
+                        </button>
+                    </div>
+                    <div class="h-64 bg-gray-50 rounded-lg flex items-center justify-center border border-gray-200">
+                        <div class="text-center">
+                            <i class="fas fa-chart-pie text-3xl text-gray-400 mb-3"></i>
+                            <div class="text-gray-600 font-medium">Distribution Chart</div>
+                            <div class="text-gray-500 text-sm mt-1">Shipment data will appear here</div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Additional Charts -->
+            <section class="grid grid-cols-1 xl:grid-cols-2 gap-6 mb-8">
+                <div class="bg-white p-6 rounded-lg card-shadow transition-smooth">
+                    <h3 class="text-lg font-semibold text-gray-900 mb-4">Expected RTO</h3>
+                    <div class="h-64 bg-gray-50 rounded-lg flex items-center justify-center border border-gray-200">
+                        <div class="text-center">
+                            <i class="fas fa-exclamation text-3xl text-gray-400 mb-3"></i>
+                            <div class="text-gray-600 font-medium">RTO Analytics</div>
+                            <div class="text-gray-500 text-sm mt-1">Predictive data will appear here</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bg-white p-6 rounded-lg card-shadow transition-smooth">
+                    <h3 class="text-lg font-semibold text-gray-900 mb-4">Pending Tasks</h3>
+                    <div class="h-64 bg-gray-50 rounded-lg flex items-center justify-center border border-gray-200">
+                        <div class="text-center">
+                            <i class="fas fa-tasks text-3xl text-gray-400 mb-3"></i>
+                            <div class="text-gray-600 font-medium">Task Overview</div>
+                            <div class="text-gray-500 text-sm mt-1">Task data will appear here</div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Shipment Trends -->
+            <section class="bg-white p-6 rounded-lg card-shadow transition-smooth mb-8">
+                <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between mb-4 space-y-2 sm:space-y-0">
+                    <h3 class="text-lg font-semibold text-gray-900">Shipment Trends</h3>
+                    <div class="flex items-center space-x-3">
+                        <div class="flex items-center space-x-2">
+                            <span class="text-sm text-gray-600">View:</span>
+                            <select class="bg-gray-100 border border-gray-300 rounded-md px-2 py-1 text-sm text-gray-700 focus:outline-none focus:ring-2 focus:ring-indigo-500">
+                                <option>Days</option>
+                                <option>Weeks</option>
+                                <option>Months</option>
+                            </select>
+                        </div>
+                        <select class="bg-gray-100 border border-gray-300 rounded-md px-2 py-1 text-sm text-gray-700 focus:outline-none focus:ring-2 focus:ring-indigo-500">
+                            <option>All Orders</option>
+                            <option>Priority</option>
+                            <option>Standard</option>
+                        </select>
+                    </div>
+                </div>
+                
+                <div class="h-80 bg-gray-50 rounded-lg flex items-center justify-center border border-gray-200 mb-4">
+                    <div class="text-center">
+                        <i class="fas fa-chart-area text-4xl text-gray-400 mb-4"></i>
+                        <div class="text-gray-600 font-medium text-lg">Trend Analytics</div>
+                        <div class="text-gray-500 text-sm mt-1">Comprehensive shipment data visualization</div>
+                    </div>
+                </div>
+                
+                <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between space-y-3 sm:space-y-0">
+                    <div class="text-xs text-gray-500">
+                        Updated: 08:12 PM IST, Sep 18, 2025
+                    </div>
+                    <div class="flex flex-wrap gap-3 text-xs">
+                        <div class="flex items-center space-x-2">
+                            <div class="w-2 h-2 bg-red-500 rounded-full"></div>
+                            <span class="text-gray-600">Cancelled</span>
+                        </div>
+                        <div class="flex items-center space-x-2">
+                            <div class="w-2 h-2 bg-orange-500 rounded-full"></div>
+                            <span class="text-gray-600">Shipped</span>
+                        </div>
+                        <div class="flex items-center space-x-2">
+                            <div class="w-2 h-2 bg-green-500 rounded-full"></div>
+                            <span class="text-gray-600">Gate Pass</span>
+                        </div>
+                        <div class="flex items-center space-x-2">
+                            <div class="w-2 h-2 bg-purple-500 rounded-full"></div>
+                            <span class="text-gray-600">Cargo Ready</span>
+                        </div>
+                        <div class="flex items-center space-x-2">
+                            <div class="w-2 h-2 bg-yellow-500 rounded-full"></div>
+                            <span class="text-gray-600">Verified</span>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Vendor Monthly Overview -->
+            <section class="bg-white p-6 rounded-lg card-shadow transition-smooth">
+                <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between mb-4 space-y-2 sm:space-y-0">
+                    <h3 class="text-lg font-semibold text-gray-900">Vendor Monthly Overview</h3>
+                    <div class="flex items-center space-x-2">
+                        <button class="px-3 py-1.5 bg-orange-500 text-white text-sm rounded-md hover:bg-orange-600 transition-smooth">
+                            <i class="fas fa-download mr-1"></i>
+                            Export
+                        </button>
+                        <button class="px-3 py-1.5 bg-gray-100 text-gray-700 text-sm rounded-md hover:bg-gray-200 transition-smooth">
+                            <i class="fas fa-filter mr-1"></i>
+                            Filter
+                        </button>
+                    </div>
+                </div>
+                
+                <div class="overflow-x-auto">
+                    <table class="w-full min-w-max border-collapse">
+                        <thead>
+                            <tr class="border-b border-gray-200">
+                                <th class="text-left py-3 px-4 font-semibold text-sm text-gray-700">Month</th>
+                                <th class="text-left py-3 px-4 font-semibold text-sm text-gray-700">Gate Pass</th>
+                                <th class="text-left py-3 px-4 font-semibold text-sm text-gray-700">Delivered</th>
+                                <th class="text-left py-3 px-4 font-semibold text-sm text-gray-700">RTO</th>
+                                <th class="text-left py-3 px-4 font-semibold text-sm text-gray-700">ORTV</th>
+                                <th class="text-left py-3 px-4 font-semibold text-sm text-gray-700">Shipped</th>
+                                <th class="text-left py-3 px-4 font-semibold text-sm text-gray-700">Returns</th>
+                                <th class="text-left py-3 px-4 font-semibold text-sm text-gray-700">Cancelled</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td colspan="8" class="py-12 text-center">
+                                    <div class="flex flex-col items-center">
+                                        <i class="fas fa-database text-3xl text-gray-300 mb-3"></i>
+                                        <div class="text-gray-600 font-medium">No Data Available</div>
+                                        <div class="text-gray-500 text-sm mt-1">Configure vendor settings to view data</div>
+                                        <button class="mt-3 px-4 py-2 bg-indigo-600 text-white text-sm rounded-md hover:bg-indigo-700 transition-smooth">
+                                            Configure Vendors
+                                        </button>
+                                    </div>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-white border-t border-gray-200 p-4 text-center text-sm text-gray-600 mt-8 transition-all duration-300 ease-in-out lg:ml-64">
+        <div class="flex flex-col sm:flex-row items-center justify-between space-y-2 sm:space-y-0">
+            <div class="flex items-center space-x-2">
+                <div class="w-5 h-5 bg-indigo-600 rounded flex items-center justify-center">
+                    <i class="fas fa-gem text-white text-xs"></i>
+                </div>
+                <span>© 2025 Reliance Jewels. All rights reserved.</span>
+            </div>
+            <div class="flex items-center space-x-4 text-xs">
+                <a href="#" class="text-gray-500 hover:text-gray-700 transition-smooth">Privacy</a>
+                <a href="#" class="text-gray-500 hover:text-gray-700 transition-smooth">Terms</a>
+                <a href="#" class="text-gray-500 hover:text-gray-700 transition-smooth">Support</a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script>
+        const sidebarToggle = document.getElementById('sidebar-toggle');
+        const sidebar = document.getElementById('sidebar');
+        const mainContent = document.getElementById('main-content');
+        const footer = document.querySelector('footer');
+
+        let sidebarOpen = window.innerWidth >= 1024;
+
+        function updateSidebar() {
+            if (sidebarOpen) {
+                sidebar.classList.remove('-translate-x-full');
+                mainContent.classList.add('lg:ml-64');
+                footer.classList.add('lg:ml-64');
+            } else {
+                sidebar.classList.add('-translate-x-full');
+                mainContent.classList.remove('lg:ml-64');
+                footer.classList.remove('lg:ml-64');
+            }
+        }
+
+        function toggleSidebar() {
+            sidebarOpen = !sidebarOpen;
+            updateSidebar();
+        }
+
+        updateSidebar();
+        sidebarToggle.addEventListener('click', toggleSidebar);
+
+        // Close sidebar on outside click (mobile)
+        document.addEventListener('click', (event) => {
+            if (!sidebar.contains(event.target) && !sidebarToggle.contains(event.target) && window.innerWidth < 1024 && sidebarOpen) {
+                toggleSidebar();
+            }
+        });
+
+        // Handle window resize
+        window.addEventListener('resize', () => {
+            if (window.innerWidth >= 1024) {
+                sidebarOpen = true;
+            } else {
+                sidebarOpen = false;
+            }
+            updateSidebar();
+        });
+
+        // Initialize sidebar state
+        if (window.innerWidth < 1024) {
+            sidebarOpen = false;
+            updateSidebar();
+        }
+    </script>
+</body>
+</html>
