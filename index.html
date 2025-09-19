@@ -71,8 +71,8 @@
     </style>
 </head>
 <body class="bg-gradient-to-br from-slate-50 via-blue-50 to-indigo-50 font-inter text-slate-800 antialiased min-h-screen">
-    <!-- Floating Header -->
-    <header class="glass-effect fixed top-4 left-4 right-4 z-50 rounded-2xl shadow-xl border border-white/20">
+    <!-- Full Width Header -->
+    <header class="glass-effect fixed top-0 left-0 right-0 z-50 shadow-xl border-b border-white/20">
         <div class="px-6 py-4 flex justify-between items-center">
             <div class="flex items-center space-x-4">
                 <button id="sidebar-toggle" class="p-2 rounded-xl bg-gradient-to-r from-primary-500 to-primary-600 text-white hover:from-primary-600 hover:to-primary-700 transition-all duration-300 shadow-lg hover:shadow-xl">
@@ -113,7 +113,7 @@
     </header>
 
     <!-- Modern Sidebar -->
-    <aside id="sidebar" class="sidebar-gradient text-white w-72 p-6 fixed inset-y-0 left-0 transition-all duration-500 ease-out z-40 mt-20 rounded-tr-3xl shadow-2xl border-r border-white/10 overflow-y-auto">
+    <aside id="sidebar" class="sidebar-gradient text-white w-72 p-6 fixed inset-y-0 left-0 transition-all duration-500 ease-out z-40 pt-20 shadow-2xl border-r border-white/10 overflow-y-auto">
         <nav class="mt-8">
             <ul class="space-y-2">
                 <li>
@@ -185,7 +185,7 @@
     </aside>
 
     <!-- Main Content -->
-    <main id="main-content" class="pt-24 p-6 transition-all duration-500 ease-out lg:ml-72">
+    <main id="main-content" class="pt-20 p-6 transition-all duration-500 ease-out lg:ml-72">
         <!-- Today's Stats -->
         <section class="mb-12 animate-fade-in">
             <div class="flex items-center justify-between mb-8">
