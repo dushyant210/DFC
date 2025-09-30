@@ -1,0 +1,82 @@
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+.glass-effect {
+    background: rgba(255, 255, 255, .85);
+    backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, .2);
+}
+
+.sidebar-gradient {
+    background: linear-gradient(180deg, #1e293b 0%, #334155 50%, #475569 100%);
+}
+
+.table-sticky th {
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    background: rgba(255, 255, 255, 0.95);
+}
+
+.submenu {
+    transition: height 240ms cubic-bezier(.4, 0, .2, 1), opacity 180ms;
+    overflow: hidden;
+}
+
+.submenu-hidden {
+    height: 0 !important;
+    opacity: 0;
+    pointer-events: none;
+}
+
+.chev {
+    transition: transform 200ms;
+    transform-origin: center;
+}
+
+.chev-rot {
+    transform: rotate(180deg);
+}
+
+/* Remove scrollbar completely */
+::-webkit-scrollbar {
+    display: none;  /* Hides the scrollbar */
+}
+
+html {
+    overflow: scroll;  /* Keeps the page scrollable */
+}
+
+/* Remove scrollbar from sidebar */
+#sidebar::-webkit-scrollbar {
+    display: none;  /* Hides the scrollbar */
+}
+
+/* small adjustments */
+.sku-name {
+    max-width: 560px;
+    white-space: normal;
+}
+
+.input-hsn {
+    width: 6.25rem;
+    padding: .35rem .5rem;
+    border: 1px solid #CBD5E1;
+    border-radius: .375rem;
+}
+
+.numeric-cell {
+    text-align: right;
+}
+
+.status-cell {
+    text-align: center;
+}
+
+
