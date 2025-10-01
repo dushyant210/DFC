@@ -113,7 +113,7 @@
           </a>
           <ul id="configSubmenu" class="ml-6 mt-2 space-y-1 submenu submenu-hidden" data-open="false">
             <li>
-              <a href="configuration-GST.html" class="flex items-center py-2 px-4 rounded-xl active">
+              <a href="configuration-GST.html" class="flex items-center py-2 px-4 rounded-xl">
                 <div class="w-2 h-2 rounded-full mr-3"></div>
                 <span class="text-sm">GST</span>
               </a>
@@ -125,7 +125,7 @@
               </a>
             </li>
             <li>
-              <a href="configuration-Terms_and_Conditions.html" class="flex items-center py-2 px-4 rounded-xl">
+              <a href="configuration-Terms_and_Conditions.html" class="flex items-center py-2 px-4 rounded-xl active">
                 <div class="w-2 h-2 rounded-full mr-3"></div>
                 <span class="text-sm">Terms and Conditions</span>
               </a>
@@ -280,142 +280,44 @@
   <main id="main-content" class="pt-20 p-6 transition-all duration-500 ease-out lg:ml-72">
     <section class="glass-effect rounded-2xl shadow-xl overflow-hidden animate-fade-in">
 
-      <!-- Header row with Filter -->
-      <div class="p-4 border-b border-slate-200 flex items-center justify-between bg-blue-50/60">
-        <h1 class="text-lg font-semibold text-slate-700">GST Configuration</h1>
-        <div class="flex items-center space-x-2">
-          <span class="text-sm text-slate-600">Filter:</span>
-          <input id="filterInput" type="text" placeholder="Search SKU / Name"
-            class="px-3 py-1 border border-slate-300 rounded text-sm focus:outline-none focus:ring-2 focus:ring-primary-500 bg-white/90" />
-        </div>
+      <!-- Title bar -->
+      <div class="p-4 border-b border-gray-200 flex items-center justify-between">
+        <h1 class="text-lg font-semibold text-slate-700">Terms and Conditions</h1>
       </div>
 
-      <!-- Table -->
-      <div class="overflow-x-auto">
-        <table class="w-full text-sm">
-          <thead class="table-sticky bg-sky-100 border-b border-slate-200">
-            <tr>
-              <th class="p-3 text-left w-10"><input id="selectAll" type="checkbox" class="w-4 h-4"></th>
-              <th class="p-3 text-left font-semibold text-blue-700">SKU Code</th>
-              <th class="p-3 text-left font-semibold text-blue-700">Seller SKU Code</th>
-              <th class="p-3 text-left font-semibold text-blue-700">SKU Name</th>
-              <th class="p-3 text-left font-semibold text-blue-700">Live HSN Code</th>
-              <th class="p-3 text-left font-semibold text-blue-700">Modified HSN Code</th>
-              <th class="p-3 text-left font-semibold text-blue-700">SGST%</th>
-              <th class="p-3 text-left font-semibold text-blue-700">CGST%</th>
-              <th class="p-3 text-left font-semibold text-blue-700">IGST%</th>
-              <th class="p-3 text-left font-semibold text-blue-700">Status</th>
-            </tr>
-          </thead>
+      <!-- Form area -->
+      <div class="p-6">
+        <div class="overflow-hidden">
+          <table class="w-full">
+            <tbody class="bg-white divide-y divide-gray-100">
+              <tr class="table-row">
+                <td class="p-4 w-64 align-top text-slate-700 font-medium">Terms and Conditions:</td>
+                <td class="p-4">
+                  <textarea id="terms" class="w-full border border-gray-300 rounded-md p-3 tc-textarea" maxlength="220"
+                    placeholder="Enter terms and conditions..."></textarea>
+                  <div class="mt-2 text-sm text-slate-600"><span id="termsRemaining">220</span> characters remaining.
+                  </div>
+                </td>
+              </tr>
 
-          <tbody id="gstTableBody" class="bg-white divide-y divide-slate-100">
-            <!-- Example rows (only Modified HSN is editable; SGST/CGST/IGST are plain text; Status cells empty) -->
-            <tr class="hover:bg-slate-50">
-              <td class="p-3"><input type="checkbox" class="rowCheck w-4 h-4"></td>
-              <td class="p-3">53</td>
-              <td class="p-3">ERGDP17FV</td>
-              <td class="p-3 sku-name">Reliance Jewels 22Kt Gold Oval Shaped Drop Earrings (V_1000_ERGDP17FV)</td>
-              <td class="p-3">7117</td>
-              <td class="p-3"><input type="text" value="7117" class="input-hsn" /></td>
-              <td class="p-3 numeric-cell">1.50</td>
-              <td class="p-3 numeric-cell">1.50</td>
-              <td class="p-3 numeric-cell">3.00</td>
-              <td class="p-3 status-cell">&nbsp;</td>
-            </tr>
-
-            <tr class="hover:bg-slate-50">
-              <td class="p-3"><input type="checkbox" class="rowCheck w-4 h-4"></td>
-              <td class="p-3">54</td>
-              <td class="p-3">ERGDP17UH</td>
-              <td class="p-3 sku-name">Reliance Jewels 22Kt Gold Square Shaped Stud Earrings (V_1000_ERGDP17UH)</td>
-              <td class="p-3">7117</td>
-              <td class="p-3"><input type="text" value="7117" class="input-hsn" /></td>
-              <td class="p-3 numeric-cell">1.50</td>
-              <td class="p-3 numeric-cell">1.50</td>
-              <td class="p-3 numeric-cell">3.00</td>
-              <td class="p-3 status-cell">&nbsp;</td>
-            </tr>
-
-            <tr class="hover:bg-slate-50">
-              <td class="p-3"><input type="checkbox" class="rowCheck w-4 h-4"></td>
-              <td class="p-3">55</td>
-              <td class="p-3">ERGDP17UX</td>
-              <td class="p-3 sku-name">Reliance Jewels 22Kt Gold Leaf Designed Stud Earrings (V_1000_ERGDP17UX)</td>
-              <td class="p-3">7117</td>
-              <td class="p-3"><input type="text" value="7117" class="input-hsn" /></td>
-              <td class="p-3 numeric-cell">1.50</td>
-              <td class="p-3 numeric-cell">1.50</td>
-              <td class="p-3 numeric-cell">3.00</td>
-              <td class="p-3 status-cell">&nbsp;</td>
-            </tr>
-
-            <tr class="hover:bg-slate-50">
-              <td class="p-3"><input type="checkbox" class="rowCheck w-4 h-4"></td>
-              <td class="p-3">56</td>
-              <td class="p-3">ERGTL17HJ</td>
-              <td class="p-3 sku-name">Reliance Jewels 22Kt Gold Symmetric Designed Hoops Earrings (V_1000_ERGTL17HJ)
-              </td>
-              <td class="p-3">7117</td>
-              <td class="p-3"><input type="text" value="7117" class="input-hsn" /></td>
-              <td class="p-3 numeric-cell">1.50</td>
-              <td class="p-3 numeric-cell">1.50</td>
-              <td class="p-3 numeric-cell">3.00</td>
-              <td class="p-3 status-cell">&nbsp;</td>
-            </tr>
-
-            <tr class="hover:bg-slate-50">
-              <td class="p-3"><input type="checkbox" class="rowCheck w-4 h-4"></td>
-              <td class="p-3">57</td>
-              <td class="p-3">ERGRJ19DT</td>
-              <td class="p-3 sku-name">Aabhar Collection Reliance Jewels 22Kt Gold Peacock Designed Drop Earrings
-                (V_1000_ERGRJ19DT)</td>
-              <td class="p-3">7117</td>
-              <td class="p-3"><input type="text" value="7117" class="input-hsn" /></td>
-              <td class="p-3 numeric-cell">1.50</td>
-              <td class="p-3 numeric-cell">1.50</td>
-              <td class="p-3 numeric-cell">3.00</td>
-              <td class="p-3 status-cell">&nbsp;</td>
-            </tr>
-
-            <tr class="hover:bg-slate-50">
-              <td class="p-3"><input type="checkbox" class="rowCheck w-4 h-4"></td>
-              <td class="p-3">62</td>
-              <td class="p-3">2GCHNRG15ACB100YPG</td>
-              <td class="p-3 sku-name">Reliance Jewels Women's 22Kt Gold Box Style Chain - 18 inches Length
-                (V_1000_2GCHNRG15ACB100YPG)</td>
-              <td class="p-3">7117</td>
-              <td class="p-3"><input type="text" value="7117" class="input-hsn" /></td>
-              <td class="p-3 numeric-cell">1.50</td>
-              <td class="p-3 numeric-cell">1.50</td>
-              <td class="p-3 numeric-cell">3.00</td>
-              <td class="p-3 status-cell">&nbsp;</td>
-            </tr>
-
-          </tbody>
-        </table>
-      </div>
-
-      <!-- Pagination + Actions -->
-      <div class="p-4 border-t border-slate-200 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
-        <div class="flex items-center gap-4">
-          <span class="text-sm text-slate-600">(1 of 51578)</span>
-          <div class="flex items-center gap-2">
-            <button class="px-2 py-1 bg-slate-200 text-slate-700 text-sm rounded hover:bg-slate-300">&lt;</button>
-            <button class="px-2 py-1 bg-primary-500 text-white text-sm font-medium rounded">1</button>
-            <button class="px-2 py-1 bg-slate-200 text-slate-700 text-sm rounded hover:bg-slate-300">2</button>
-            <button class="px-2 py-1 bg-slate-200 text-slate-700 text-sm rounded hover:bg-slate-300">3</button>
-            <button class="px-2 py-1 bg-slate-200 text-slate-700 text-sm rounded hover:bg-slate-300">&gt;</button>
-          </div>
-          <select class="border border-slate-300 rounded px-2 py-1 text-sm">
-            <option>10</option>
-            <option>25</option>
-            <option>50</option>
-            <option>100</option>
-          </select>
+              <tr class="table-row">
+                <td class="p-4 w-64 align-top text-slate-700 font-medium">Disclaimer:</td>
+                <td class="p-4">
+                  <textarea id="disclaimer" class="w-full border border-gray-300 rounded-md p-3 tc-textarea"
+                    maxlength="220" placeholder="Enter disclaimer..."></textarea>
+                  <div class="mt-2 text-sm text-slate-600"><span id="discRemaining">220</span> characters remaining.
+                  </div>
+                </td>
+              </tr>
+            </tbody>
+          </table>
         </div>
 
-        <button id="updateBtn"
-          class="px-4 py-2 bg-primary-500 text-white text-sm font-medium rounded hover:bg-primary-600">Update</button>
+        <!-- Update row -->
+        <div class="mt-6 p-4 border-t border-gray-200 flex justify-start">
+          <button id="updateBtn"
+            class="px-4 py-2 bg-primary-500 text-white text-sm font-medium rounded hover:bg-primary-600 shadow">Update</button>
+        </div>
       </div>
     </section>
   </main>
@@ -439,10 +341,8 @@
     </div>
   </footer>
 
-
+  <!-- Scripts -->
   <script src="script.js"></script>
-
-
 </body>
 
 </html>

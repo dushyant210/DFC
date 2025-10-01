@@ -43,15 +43,14 @@
 
 <body
   class="bg-gradient-to-br from-slate-50 via-blue-50 to-indigo-50 font-inter text-slate-800 antialiased min-h-screen">
-
-  <!-- Header -->
+  <!-- Full Width Header -->
   <header class="glass-effect fixed top-0 left-0 right-0 z-50 shadow-xl border-b border-white/20">
     <div class="px-6 py-4 flex justify-between items-center">
       <div class="flex items-center space-x-4">
         <button id="sidebar-toggle"
-          class="p-2 rounded-xl bg-gradient-to-r from-primary-500 to-primary-600 text-white shadow">
+          class="p-2 rounded-xl bg-gradient-to-r from-primary-500 to-primary-600 text-white hover:from-primary-600 hover:to-primary-700 transition-all duration-300 shadow-lg hover:shadow-xl">
           <svg class="h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M4 6h16M4 12h16M4 18h16" />
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M4 6h16M4 12h16M4 18h16"></path>
           </svg>
         </button>
         <div class="flex items-center space-x-3">
@@ -61,7 +60,8 @@
           </div>
           <div
             class="text-2xl font-bold bg-gradient-to-r from-primary-600 to-primary-800 bg-clip-text text-transparent">
-            StoreOs</div>
+            StoreOs
+          </div>
         </div>
       </div>
 
@@ -77,14 +77,21 @@
         </select>
 
         <div class="flex items-center space-x-2">
-          <button class="p-2 rounded-xl bg-white/70 border border-white/30 text-slate-600"><i
-              class="fas fa-bell text-sm"></i></button>
-          <button class="p-2 rounded-xl bg-white/70 border border-white/30 text-slate-600"><i
-              class="fas fa-user-circle text-sm"></i></button>
+          <button
+            class="p-2 rounded-xl bg-white/70 backdrop-blur-sm border border-white/30 text-slate-600 hover:bg-white/80 hover:text-primary-600 transition-all duration-300">
+            <i class="fas fa-bell text-sm"></i>
+          </button>
+          <button
+            class="p-2 rounded-xl bg-white/70 backdrop-blur-sm border border-white/30 text-slate-600 hover:bg-white/80 hover:text-primary-600 transition-all duration-300">
+            <i class="fas fa-user-circle text-sm"></i>
+          </button>
         </div>
       </div>
     </div>
   </header>
+
+  <!-- Modern Sidebar -->
+  <!-- Sidebar -->
 
   <!-- Sidebar -->
   <aside id="sidebar"
@@ -113,7 +120,7 @@
           </a>
           <ul id="configSubmenu" class="ml-6 mt-2 space-y-1 submenu submenu-hidden" data-open="false">
             <li>
-              <a href="configuration-GST.html" class="flex items-center py-2 px-4 rounded-xl active">
+              <a href="configuration-GST.html" class="flex items-center py-2 px-4 rounded-xl">
                 <div class="w-2 h-2 rounded-full mr-3"></div>
                 <span class="text-sm">GST</span>
               </a>
@@ -144,7 +151,7 @@
           </a>
           <ul id="inventorySubmenu" class="ml-6 mt-2 space-y-1 submenu submenu-hidden" data-open="false">
             <li>
-              <a href="Inventory-Commit_Inventory.html" class="flex items-center py-2 px-4 rounded-xl">
+              <a href="Inventory-Commit_Inventory.html" class="flex items-center py-2 px-4 rounded-xl active">
                 <div class="w-2 h-2 rounded-full mr-3"></div>
                 <span class="text-sm">Commit Inventory</span>
               </a>
@@ -275,6 +282,7 @@
 
     </nav>
   </aside>
+
 
   <!-- Main -->
   <main id="main-content" class="pt-20 p-6 transition-all duration-500 ease-out lg:ml-72">
@@ -420,7 +428,7 @@
     </section>
   </main>
 
-  <!-- Footer -->
+  <!-- Modern Footer -->
   <footer
     class="glass-effect mx-4 mb-4 p-6 rounded-2xl shadow-xl text-center transition-all duration-500 ease-out lg:ml-72">
     <div class="flex flex-col md:flex-row items-center justify-between space-y-4 md:space-y-0">
@@ -439,9 +447,7 @@
     </div>
   </footer>
 
-
   <script src="script.js"></script>
-
 
 </body>
 

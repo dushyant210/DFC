@@ -45,42 +45,39 @@
   class="bg-gradient-to-br from-slate-50 via-blue-50 to-indigo-50 font-inter text-slate-800 antialiased min-h-screen">
 
   <!-- Header -->
-  <header class="glass-effect fixed top-0 left-0 right-0 z-50 shadow-xl border-b border-white/20">
+  <header class="glass-effect fixed top-0 left-0 right-0 z-50 shadow border-b border-white/20">
     <div class="px-6 py-4 flex justify-between items-center">
-      <div class="flex items-center space-x-4">
+      <div class="flex items-center gap-4">
         <button id="sidebar-toggle"
           class="p-2 rounded-xl bg-gradient-to-r from-primary-500 to-primary-600 text-white shadow">
           <svg class="h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M4 6h16M4 12h16M4 18h16" />
           </svg>
         </button>
-        <div class="flex items-center space-x-3">
+        <div class="flex items-center gap-3">
           <div
-            class="w-8 h-8 bg-gradient-to-r from-primary-500 to-primary-600 rounded-xl flex items-center justify-center">
-            <i class="fas fa-gem text-white text-sm"></i>
+            class="w-8 h-8 rounded-xl bg-gradient-to-r from-primary-500 to-primary-600 flex items-center justify-center">
+            <i class="fas fa-gem text-white"></i>
           </div>
           <div
-            class="text-2xl font-bold bg-gradient-to-r from-primary-600 to-primary-800 bg-clip-text text-transparent">
+            class="text-2xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-primary-600 to-primary-800">
             StoreOs</div>
         </div>
       </div>
 
-      <div class="flex items-center space-x-4">
-        <div class="hidden md:flex items-center space-x-3">
-          <div class="w-2 h-2 bg-green-400 rounded-full animate-pulse"></div>
-          <span class="text-sm font-medium text-slate-600">RIL Jewels</span>
+      <div class="flex items-center gap-4">
+        <div class="hidden md:flex items-center gap-3 text-sm text-slate-600">
+          <div class="w-2 h-2 bg-green-400 rounded-full animate-pulse"></div>RIL Jewels
         </div>
-
         <select
-          class="bg-white/70 backdrop-blur-sm border border-white/30 rounded-xl px-4 py-2 text-sm font-medium text-slate-700 shadow-sm hover:bg-white/80 transition-all duration-300">
+          class="bg-white/70 backdrop-blur-sm border border-white/30 rounded-xl px-4 py-2 text-sm font-medium text-slate-700 shadow-sm">
           <option>Reliance Retail Ltd - Jewels Mumbai</option>
         </select>
-
-        <div class="flex items-center space-x-2">
+        <div class="flex items-center gap-2">
           <button class="p-2 rounded-xl bg-white/70 border border-white/30 text-slate-600"><i
-              class="fas fa-bell text-sm"></i></button>
+              class="fas fa-bell"></i></button>
           <button class="p-2 rounded-xl bg-white/70 border border-white/30 text-slate-600"><i
-              class="fas fa-user-circle text-sm"></i></button>
+              class="fas fa-user-circle"></i></button>
         </div>
       </div>
     </div>
@@ -113,13 +110,13 @@
           </a>
           <ul id="configSubmenu" class="ml-6 mt-2 space-y-1 submenu submenu-hidden" data-open="false">
             <li>
-              <a href="configuration-GST.html" class="flex items-center py-2 px-4 rounded-xl active">
+              <a href="configuration-GST.html" class="flex items-center py-2 px-4 rounded-xl">
                 <div class="w-2 h-2 rounded-full mr-3"></div>
                 <span class="text-sm">GST</span>
               </a>
             </li>
             <li>
-              <a href="configuration-Bulk_Tax_Update.html" class="flex items-center py-2 px-4 rounded-xl">
+              <a href="configuration-Bulk_Tax_Update.html" class="flex items-center py-2 px-4 rounded-xl active">
                 <div class="w-2 h-2 rounded-full mr-3"></div>
                 <span class="text-sm">Bulk Tax Update</span>
               </a>
@@ -276,146 +273,73 @@
     </nav>
   </aside>
 
-  <!-- Main -->
+  <!-- Main content -->
   <main id="main-content" class="pt-20 p-6 transition-all duration-500 ease-out lg:ml-72">
     <section class="glass-effect rounded-2xl shadow-xl overflow-hidden animate-fade-in">
 
-      <!-- Header row with Filter -->
-      <div class="p-4 border-b border-slate-200 flex items-center justify-between bg-blue-50/60">
-        <h1 class="text-lg font-semibold text-slate-700">GST Configuration</h1>
-        <div class="flex items-center space-x-2">
-          <span class="text-sm text-slate-600">Filter:</span>
-          <input id="filterInput" type="text" placeholder="Search SKU / Name"
-            class="px-3 py-1 border border-slate-300 rounded text-sm focus:outline-none focus:ring-2 focus:ring-primary-500 bg-white/90" />
-        </div>
+      <!-- Header -->
+      <div class="p-4 border-b border-gray-200 flex items-center justify-between">
+        <h1 class="text-lg font-semibold text-slate-700">Bulk Tax Update</h1>
       </div>
 
-      <!-- Table -->
-      <div class="overflow-x-auto">
-        <table class="w-full text-sm">
-          <thead class="table-sticky bg-sky-100 border-b border-slate-200">
-            <tr>
-              <th class="p-3 text-left w-10"><input id="selectAll" type="checkbox" class="w-4 h-4"></th>
-              <th class="p-3 text-left font-semibold text-blue-700">SKU Code</th>
-              <th class="p-3 text-left font-semibold text-blue-700">Seller SKU Code</th>
-              <th class="p-3 text-left font-semibold text-blue-700">SKU Name</th>
-              <th class="p-3 text-left font-semibold text-blue-700">Live HSN Code</th>
-              <th class="p-3 text-left font-semibold text-blue-700">Modified HSN Code</th>
-              <th class="p-3 text-left font-semibold text-blue-700">SGST%</th>
-              <th class="p-3 text-left font-semibold text-blue-700">CGST%</th>
-              <th class="p-3 text-left font-semibold text-blue-700">IGST%</th>
-              <th class="p-3 text-left font-semibold text-blue-700">Status</th>
-            </tr>
-          </thead>
-
-          <tbody id="gstTableBody" class="bg-white divide-y divide-slate-100">
-            <!-- Example rows (only Modified HSN is editable; SGST/CGST/IGST are plain text; Status cells empty) -->
-            <tr class="hover:bg-slate-50">
-              <td class="p-3"><input type="checkbox" class="rowCheck w-4 h-4"></td>
-              <td class="p-3">53</td>
-              <td class="p-3">ERGDP17FV</td>
-              <td class="p-3 sku-name">Reliance Jewels 22Kt Gold Oval Shaped Drop Earrings (V_1000_ERGDP17FV)</td>
-              <td class="p-3">7117</td>
-              <td class="p-3"><input type="text" value="7117" class="input-hsn" /></td>
-              <td class="p-3 numeric-cell">1.50</td>
-              <td class="p-3 numeric-cell">1.50</td>
-              <td class="p-3 numeric-cell">3.00</td>
-              <td class="p-3 status-cell">&nbsp;</td>
-            </tr>
-
-            <tr class="hover:bg-slate-50">
-              <td class="p-3"><input type="checkbox" class="rowCheck w-4 h-4"></td>
-              <td class="p-3">54</td>
-              <td class="p-3">ERGDP17UH</td>
-              <td class="p-3 sku-name">Reliance Jewels 22Kt Gold Square Shaped Stud Earrings (V_1000_ERGDP17UH)</td>
-              <td class="p-3">7117</td>
-              <td class="p-3"><input type="text" value="7117" class="input-hsn" /></td>
-              <td class="p-3 numeric-cell">1.50</td>
-              <td class="p-3 numeric-cell">1.50</td>
-              <td class="p-3 numeric-cell">3.00</td>
-              <td class="p-3 status-cell">&nbsp;</td>
-            </tr>
-
-            <tr class="hover:bg-slate-50">
-              <td class="p-3"><input type="checkbox" class="rowCheck w-4 h-4"></td>
-              <td class="p-3">55</td>
-              <td class="p-3">ERGDP17UX</td>
-              <td class="p-3 sku-name">Reliance Jewels 22Kt Gold Leaf Designed Stud Earrings (V_1000_ERGDP17UX)</td>
-              <td class="p-3">7117</td>
-              <td class="p-3"><input type="text" value="7117" class="input-hsn" /></td>
-              <td class="p-3 numeric-cell">1.50</td>
-              <td class="p-3 numeric-cell">1.50</td>
-              <td class="p-3 numeric-cell">3.00</td>
-              <td class="p-3 status-cell">&nbsp;</td>
-            </tr>
-
-            <tr class="hover:bg-slate-50">
-              <td class="p-3"><input type="checkbox" class="rowCheck w-4 h-4"></td>
-              <td class="p-3">56</td>
-              <td class="p-3">ERGTL17HJ</td>
-              <td class="p-3 sku-name">Reliance Jewels 22Kt Gold Symmetric Designed Hoops Earrings (V_1000_ERGTL17HJ)
-              </td>
-              <td class="p-3">7117</td>
-              <td class="p-3"><input type="text" value="7117" class="input-hsn" /></td>
-              <td class="p-3 numeric-cell">1.50</td>
-              <td class="p-3 numeric-cell">1.50</td>
-              <td class="p-3 numeric-cell">3.00</td>
-              <td class="p-3 status-cell">&nbsp;</td>
-            </tr>
-
-            <tr class="hover:bg-slate-50">
-              <td class="p-3"><input type="checkbox" class="rowCheck w-4 h-4"></td>
-              <td class="p-3">57</td>
-              <td class="p-3">ERGRJ19DT</td>
-              <td class="p-3 sku-name">Aabhar Collection Reliance Jewels 22Kt Gold Peacock Designed Drop Earrings
-                (V_1000_ERGRJ19DT)</td>
-              <td class="p-3">7117</td>
-              <td class="p-3"><input type="text" value="7117" class="input-hsn" /></td>
-              <td class="p-3 numeric-cell">1.50</td>
-              <td class="p-3 numeric-cell">1.50</td>
-              <td class="p-3 numeric-cell">3.00</td>
-              <td class="p-3 status-cell">&nbsp;</td>
-            </tr>
-
-            <tr class="hover:bg-slate-50">
-              <td class="p-3"><input type="checkbox" class="rowCheck w-4 h-4"></td>
-              <td class="p-3">62</td>
-              <td class="p-3">2GCHNRG15ACB100YPG</td>
-              <td class="p-3 sku-name">Reliance Jewels Women's 22Kt Gold Box Style Chain - 18 inches Length
-                (V_1000_2GCHNRG15ACB100YPG)</td>
-              <td class="p-3">7117</td>
-              <td class="p-3"><input type="text" value="7117" class="input-hsn" /></td>
-              <td class="p-3 numeric-cell">1.50</td>
-              <td class="p-3 numeric-cell">1.50</td>
-              <td class="p-3 numeric-cell">3.00</td>
-              <td class="p-3 status-cell">&nbsp;</td>
-            </tr>
-
-          </tbody>
-        </table>
-      </div>
-
-      <!-- Pagination + Actions -->
-      <div class="p-4 border-t border-slate-200 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
-        <div class="flex items-center gap-4">
-          <span class="text-sm text-slate-600">(1 of 51578)</span>
-          <div class="flex items-center gap-2">
-            <button class="px-2 py-1 bg-slate-200 text-slate-700 text-sm rounded hover:bg-slate-300">&lt;</button>
-            <button class="px-2 py-1 bg-primary-500 text-white text-sm font-medium rounded">1</button>
-            <button class="px-2 py-1 bg-slate-200 text-slate-700 text-sm rounded hover:bg-slate-300">2</button>
-            <button class="px-2 py-1 bg-slate-200 text-slate-700 text-sm rounded hover:bg-slate-300">3</button>
-            <button class="px-2 py-1 bg-slate-200 text-slate-700 text-sm rounded hover:bg-slate-300">&gt;</button>
+      <!-- Content -->
+      <div class="p-6 space-y-6">
+        <!-- Tax Report box -->
+        <div class="border rounded-md p-4 bg-white">
+          <div class="flex items-center justify-between">
+            <div class="muted">Click on the download button to download the latest Tax Report.</div>
+            <div>
+              <button id="downloadReport"
+                class="px-4 py-2 bg-blue-600 text-white text-sm font-medium rounded hover:bg-blue-800">Download</button>
+            </div>
           </div>
-          <select class="border border-slate-300 rounded px-2 py-1 text-sm">
-            <option>10</option>
-            <option>25</option>
-            <option>50</option>
-            <option>100</option>
-          </select>
         </div>
 
-        <button id="updateBtn"
-          class="px-4 py-2 bg-primary-500 text-white text-sm font-medium rounded hover:bg-primary-600">Update</button>
+        <!-- Upload card -->
+        <div class="upload-card p-4">
+          <div class="flex flex-col sm:flex-row items-start sm:items-center gap-4">
+            <div class="flex items-center gap-3">
+              <button id="selectFileBtn"
+                class="bg-transparent text-blue-700 font-semibold py-2 px-4 border border-blue-500 rounded">
+                <i class="fas fa-plus text-primary-600"></i>
+                <span class="font-medium">Select file to upload</span>
+              </button>
+              <div id="chosenFile" class="text-sm muted">No file selected</div>
+            </div>
+
+            <div class="ml-auto flex items-center gap-3">
+              <button id="validateBtn"
+                class="px-4 py-2 border border-gray-800 text-sm font-medium rounded dark:border-gray-600">Validate</button>
+              <button id="applyBtn"
+                class="px-4 py-2 bg-blue-600 text-white text-sm font-medium rounded hover:bg-blue-800">Apply</button>
+            </div>
+          </div>
+
+          <input id="fileInput" type="file" accept=".csv,.xlsx" class="hidden mt-3" />
+
+          <div class="mt-4 text-xs muted">Supported formats: CSV, XLSX. Use the template to avoid validation errors.
+          </div>
+
+          <!-- Preview area -->
+          <div id="previewWrap" class="mt-4 preview-box hidden">
+            <table class="w-full preview-table">
+              <thead class="bg-gray-50">
+                <tr>
+                  <th class="text-left">SKU Code</th>
+                  <th class="text-left">Live HSN</th>
+                  <th class="text-left">Modified HSN</th>
+                  <th class="text-right">SGST</th>
+                  <th class="text-right">CGST</th>
+                  <th class="text-right">IGST</th>
+                </tr>
+              </thead>
+              <tbody id="previewBody"></tbody>
+            </table>
+          </div>
+        </div>
+
+        <div class="text-sm muted">Uploaded file will be validated before applying bulk tax changes. Validation checks
+          headers and basic HSN format (demo).</div>
       </div>
     </section>
   </main>
@@ -423,26 +347,24 @@
   <!-- Footer -->
   <footer
     class="glass-effect mx-4 mb-4 p-6 rounded-2xl shadow-xl text-center transition-all duration-500 ease-out lg:ml-72">
-    <div class="flex flex-col md:flex-row items-center justify-between space-y-4 md:space-y-0">
-      <div class="flex items-center space-x-4">
+    <div class="flex flex-col md:flex-row items-center justify-between">
+      <div class="flex items-center gap-4">
         <div
-          class="w-8 h-8 bg-gradient-to-r from-primary-500 to-primary-600 rounded-lg flex items-center justify-center">
-          <i class="fas fa-gem text-white text-sm"></i>
+          class="w-8 h-8 rounded-lg bg-gradient-to-r from-primary-500 to-primary-600 flex items-center justify-center">
+          <i class="fas fa-gem text-white"></i>
         </div>
         <span class="text-slate-600 font-medium">© 2025 Reliance Jewels. All rights reserved.</span>
       </div>
-      <div class="flex items-center space-x-6 text-sm text-slate-500">
-        <a href="#" class="hover:text-primary-600 transition-colors duration-300">Privacy Policy</a>
-        <a href="#" class="hover:text-primary-600 transition-colors duration-300">Terms of Service</a>
-        <a href="#" class="hover:text-primary-600 transition-colors duration-300">Support</a>
+      <div class="flex items-center gap-6 text-sm text-slate-500">
+        <a href="#" class="hover:text-primary-600">Privacy Policy</a>
+        <a href="#" class="hover:text-primary-600">Terms of Service</a>
+        <a href="#" class="hover:text-primary-600">Support</a>
       </div>
     </div>
   </footer>
 
-
+  <!-- Scripts -->
   <script src="script.js"></script>
-
-
 </body>
 
 </html>
