@@ -151,7 +151,7 @@
           </a>
           <ul id="inventorySubmenu" class="ml-6 mt-2 space-y-1 submenu submenu-hidden" data-open="false">
             <li>
-              <a href="Inventory-Commit_Inventory.html" class="flex items-center py-2 px-4 rounded-xl active">
+              <a href="Inventory-Commit_Inventory.html" class="flex items-center py-2 px-4 rounded-xl">
                 <div class="w-2 h-2 rounded-full mr-3"></div>
                 <span class="text-sm">Commit Inventory</span>
               </a>
@@ -175,7 +175,7 @@
               </a>
             </li>
             <li>
-              <a href="Inventory-View_STN.html" class="flex items-center py-2 px-4 rounded-xl">
+              <a href="Inventory-View_STN.html" class="flex items-center py-2 px-4 rounded-xl active">
                 <div class="w-2 h-2 rounded-full mr-3"></div>
                 <span class="text-sm">View STN</span>
               </a>
@@ -268,77 +268,81 @@
 
   <!-- Main -->
   <main id="main-content" class="pt-20 p-6 transition-all duration-500 ease-out lg:ml-72">
+
 <section class="glass-effect rounded-2xl shadow-xl overflow-hidden animate-fade-in">
 
-  <!-- Header row with Filter -->
-  <div class="p-4 border-b border-slate-200 flex items-center justify-between bg-blue-50/60">
-    <h1 class="text-lg font-semibold text-slate-700">Commit Inventory</h1>
-    <div class="flex items-center space-x-2">
-      <span class="text-sm text-slate-600">Filter:</span>
-      <input id="filterInput" type="text" placeholder="Search SKU / Name"
-        class="px-3 py-1 border border-slate-300 rounded text-sm focus:outline-none focus:ring-2 focus:ring-primary-500 bg-white/90" />
+  <!-- Header -->
+  <div class="p-4 border-b border-slate-200 bg-blue-50/60">
+    <h1 class="text-lg font-semibold text-slate-700">View STNs</h1>
+  </div>
+
+  <!-- Filter Section -->
+  <div class="p-6 bg-white border-b border-slate-200 text-sm">
+    <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-4">
+      <div>
+        <label class="block text-slate-700 font-medium mb-1">From Date:</label>
+        <input type="date"
+          class="w-full border border-slate-300 rounded px-2 py-1 focus:ring-2 focus:ring-primary-500 focus:outline-none text-sm" />
+      </div>
+      <div>
+        <label class="block text-slate-700 font-medium mb-1">To Date:</label>
+        <input type="date"
+          class="w-full border border-slate-300 rounded px-2 py-1 focus:ring-2 focus:ring-primary-500 focus:outline-none text-sm" />
+      </div>
     </div>
+
+    <div class="flex gap-3 mt-4">
+      <button class="px-4 py-2 bg-primary-500 text-white text-sm font-medium rounded hover:bg-primary-600">Filter</button>
+      <button class="px-4 py-2 bg-gray-200 text-gray-700 text-sm font-medium rounded hover:bg-gray-300">Reset</button>
+    </div>
+  </div>
+
+  <!-- Table Header -->
+  <div class="p-3 bg-blue-50/80 border-t border-b border-blue-100">
+    <h2 class="text-slate-700 font-medium text-base">Listing STNs</h2>
   </div>
 
   <!-- Table -->
   <div class="overflow-x-auto">
     <table class="w-full text-sm">
-      <thead class="table-sticky bg-sky-100 border-b border-slate-200">
-        <tr>
-          <th class="p-3 text-left w-10"><input id="selectAll" type="checkbox" class="w-4 h-4"></th>
-          <th class="p-3 text-left font-semibold text-blue-700">SKU Name</th>
-          <th class="p-3 text-left font-semibold text-blue-700">SKU Id</th>
-          <th class="p-3 text-left font-semibold text-blue-700">Seller SKU Id</th>
-          <th class="p-3 text-left font-semibold text-blue-700">Product Id</th>
-          <th class="p-3 text-left font-semibold text-blue-700">Item Id</th>
-          <th class="p-3 text-left font-semibold text-blue-700">Increase / Decrease</th>
-          <th class="p-3 text-left font-semibold text-blue-700">Sellable Qty</th>
-          <th class="p-3 text-left font-semibold text-blue-700">Assigned Qty</th>
-          <th class="p-3 text-left font-semibold text-blue-700">Balance Qty</th>
-          <th class="p-3 text-left font-semibold text-blue-700">HSN Code</th>
-          <th class="p-3 text-left font-semibold text-blue-700">SGST%</th>
-          <th class="p-3 text-left font-semibold text-blue-700">CGST%</th>
-          <th class="p-3 text-left font-semibold text-blue-700">IGST%</th>
+      <thead class="bg-sky-100 border-b border-slate-200">
+        <tr class="text-blue-700">
+          <th class="p-3 text-left font-semibold">S. No.</th>
+          <th class="p-3 text-left font-semibold">STN No.</th>
+          <th class="p-3 text-left font-semibold">Date</th>
+          <th class="p-3 text-left font-semibold">Actions</th>
         </tr>
       </thead>
-
-      <tbody id="inventoryTableBody" class="bg-white divide-y divide-slate-100">
-        <!-- Example empty row -->
+      <tbody class="bg-white divide-y divide-slate-100">
         <tr class="hover:bg-slate-50">
-          <td colspan="14" class="p-4 text-center text-slate-500">No records found.</td>
+          <td colspan="4" class="p-4 text-center text-slate-500">No records found.</td>
         </tr>
       </tbody>
     </table>
   </div>
 
-  <!-- Pagination + Actions -->
-  <div class="p-4 border-t border-slate-200 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
+  <!-- Footer Pagination -->
+  <div class="p-4 border-t border-slate-200 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 bg-blue-50">
     <div class="flex items-center gap-4">
+      <select class="border border-slate-300 rounded px-2 py-1 text-sm">
+        <option>20</option>
+        <option>50</option>
+        <option>100</option>
+      </select>
       <span class="text-sm text-slate-600">(1 of 1)</span>
       <div class="flex items-center gap-2">
         <button class="px-2 py-1 bg-slate-200 text-slate-700 text-sm rounded hover:bg-slate-300">&lt;</button>
         <button class="px-2 py-1 bg-primary-500 text-white text-sm font-medium rounded">1</button>
         <button class="px-2 py-1 bg-slate-200 text-slate-700 text-sm rounded hover:bg-slate-300">&gt;</button>
       </div>
-      <select class="border border-slate-300 rounded px-2 py-1 text-sm">
-        <option>10</option>
-        <option>25</option>
-        <option>50</option>
-      </select>
-    </div>
-
-    <div class="flex gap-2">
-      <button id="submitBtn"
-        class="px-4 py-2 bg-primary-500 text-white text-sm font-medium rounded hover:bg-primary-600">Submit</button>
-      <button id="clearBtn"
-        class="px-4 py-2 bg-gray-200 text-gray-700 text-sm font-medium rounded hover:bg-gray-300">Clear</button>
     </div>
   </div>
 </section>
 
-  </main>
 
-  <!-- Modern Footer -->
+    </main>
+
+    <!-- Modern Footer -->
   <footer
     class="glass-effect mx-4 mb-4 p-6 rounded-2xl shadow-xl text-center transition-all duration-500 ease-out lg:ml-72">
     <div class="flex flex-col md:flex-row items-center justify-between space-y-4 md:space-y-0">

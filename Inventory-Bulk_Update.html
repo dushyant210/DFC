@@ -151,13 +151,13 @@
           </a>
           <ul id="inventorySubmenu" class="ml-6 mt-2 space-y-1 submenu submenu-hidden" data-open="false">
             <li>
-              <a href="Inventory-Commit_Inventory.html" class="flex items-center py-2 px-4 rounded-xl active">
+              <a href="Inventory-Commit_Inventory.html" class="flex items-center py-2 px-4 rounded-xl">
                 <div class="w-2 h-2 rounded-full mr-3"></div>
                 <span class="text-sm">Commit Inventory</span>
               </a>
             </li>
             <li>
-              <a href="Inventory-Bulk_Update.html" class="flex items-center py-2 px-4 rounded-xl">
+              <a href="Inventory-Bulk_Update.html" class="flex items-center py-2 px-4 rounded-xl active">
                 <div class="w-2 h-2 rounded-full mr-3"></div>
                 <span class="text-sm">Bulk Update</span>
               </a>
@@ -268,77 +268,77 @@
 
   <!-- Main -->
   <main id="main-content" class="pt-20 p-6 transition-all duration-500 ease-out lg:ml-72">
-<section class="glass-effect rounded-2xl shadow-xl overflow-hidden animate-fade-in">
+    <section class="glass-effect rounded-2xl shadow-xl overflow-hidden animate-fade-in">
 
-  <!-- Header row with Filter -->
-  <div class="p-4 border-b border-slate-200 flex items-center justify-between bg-blue-50/60">
-    <h1 class="text-lg font-semibold text-slate-700">Commit Inventory</h1>
-    <div class="flex items-center space-x-2">
-      <span class="text-sm text-slate-600">Filter:</span>
-      <input id="filterInput" type="text" placeholder="Search SKU / Name"
-        class="px-3 py-1 border border-slate-300 rounded text-sm focus:outline-none focus:ring-2 focus:ring-primary-500 bg-white/90" />
-    </div>
-  </div>
-
-  <!-- Table -->
-  <div class="overflow-x-auto">
-    <table class="w-full text-sm">
-      <thead class="table-sticky bg-sky-100 border-b border-slate-200">
-        <tr>
-          <th class="p-3 text-left w-10"><input id="selectAll" type="checkbox" class="w-4 h-4"></th>
-          <th class="p-3 text-left font-semibold text-blue-700">SKU Name</th>
-          <th class="p-3 text-left font-semibold text-blue-700">SKU Id</th>
-          <th class="p-3 text-left font-semibold text-blue-700">Seller SKU Id</th>
-          <th class="p-3 text-left font-semibold text-blue-700">Product Id</th>
-          <th class="p-3 text-left font-semibold text-blue-700">Item Id</th>
-          <th class="p-3 text-left font-semibold text-blue-700">Increase / Decrease</th>
-          <th class="p-3 text-left font-semibold text-blue-700">Sellable Qty</th>
-          <th class="p-3 text-left font-semibold text-blue-700">Assigned Qty</th>
-          <th class="p-3 text-left font-semibold text-blue-700">Balance Qty</th>
-          <th class="p-3 text-left font-semibold text-blue-700">HSN Code</th>
-          <th class="p-3 text-left font-semibold text-blue-700">SGST%</th>
-          <th class="p-3 text-left font-semibold text-blue-700">CGST%</th>
-          <th class="p-3 text-left font-semibold text-blue-700">IGST%</th>
-        </tr>
-      </thead>
-
-      <tbody id="inventoryTableBody" class="bg-white divide-y divide-slate-100">
-        <!-- Example empty row -->
-        <tr class="hover:bg-slate-50">
-          <td colspan="14" class="p-4 text-center text-slate-500">No records found.</td>
-        </tr>
-      </tbody>
-    </table>
-  </div>
-
-  <!-- Pagination + Actions -->
-  <div class="p-4 border-t border-slate-200 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
-    <div class="flex items-center gap-4">
-      <span class="text-sm text-slate-600">(1 of 1)</span>
-      <div class="flex items-center gap-2">
-        <button class="px-2 py-1 bg-slate-200 text-slate-700 text-sm rounded hover:bg-slate-300">&lt;</button>
-        <button class="px-2 py-1 bg-primary-500 text-white text-sm font-medium rounded">1</button>
-        <button class="px-2 py-1 bg-slate-200 text-slate-700 text-sm rounded hover:bg-slate-300">&gt;</button>
+      <!-- Header -->
+      <div class="p-4 border-b border-gray-200 flex items-center justify-between">
+        <h1 class="text-lg font-semibold text-slate-700">Bulk Tax Update</h1>
       </div>
-      <select class="border border-slate-300 rounded px-2 py-1 text-sm">
-        <option>10</option>
-        <option>25</option>
-        <option>50</option>
-      </select>
-    </div>
 
-    <div class="flex gap-2">
-      <button id="submitBtn"
-        class="px-4 py-2 bg-primary-500 text-white text-sm font-medium rounded hover:bg-primary-600">Submit</button>
-      <button id="clearBtn"
-        class="px-4 py-2 bg-gray-200 text-gray-700 text-sm font-medium rounded hover:bg-gray-300">Clear</button>
-    </div>
-  </div>
-</section>
+      <!-- Content -->
+      <div class="p-6 space-y-6">
+        <!-- Tax Report box -->
+        <div class="border rounded-md p-4 bg-white">
+          <div class="flex items-center justify-between">
+            <div class="muted">Click on the download button to download the latest Tax Report.</div>
+            <div>
+              <button id="downloadReport"
+                class="px-4 py-2 bg-blue-600 text-white text-sm font-medium rounded hover:bg-blue-800">Download</button>
+            </div>
+          </div>
+        </div>
 
-  </main>
+        <!-- Upload card -->
+        <div class="upload-card p-4">
+          <div class="flex flex-col sm:flex-row items-start sm:items-center gap-4">
+            <div class="flex items-center gap-3">
+              <button id="selectFileBtn"
+                class="bg-transparent text-blue-700 font-semibold py-2 px-4 border border-blue-500 rounded">
+                <i class="fas fa-plus text-primary-600"></i>
+                <span class="font-medium">Select file to upload</span>
+              </button>
+              <div id="chosenFile" class="text-sm muted">No file selected</div>
+            </div>
 
-  <!-- Modern Footer -->
+            <div class="ml-auto flex items-center gap-3">
+              <button id="validateBtn"
+                class="px-4 py-2 border border-gray-800 text-sm font-medium rounded dark:border-gray-600">Validate</button>
+              <button id="applyBtn"
+                class="px-4 py-2 bg-blue-600 text-white text-sm font-medium rounded hover:bg-blue-800">Apply</button>
+            </div>
+          </div>
+
+          <input id="fileInput" type="file" accept=".csv,.xlsx" class="hidden mt-3" />
+
+          <div class="mt-4 text-xs muted">Supported formats: CSV, XLSX. Use the template to avoid validation errors.
+          </div>
+
+          <!-- Preview area -->
+          <div id="previewWrap" class="mt-4 preview-box hidden">
+            <table class="w-full preview-table">
+              <thead class="bg-gray-50">
+                <tr>
+                  <th class="text-left">SKU Code</th>
+                  <th class="text-left">Live HSN</th>
+                  <th class="text-left">Modified HSN</th>
+                  <th class="text-right">SGST</th>
+                  <th class="text-right">CGST</th>
+                  <th class="text-right">IGST</th>
+                </tr>
+              </thead>
+              <tbody id="previewBody"></tbody>
+            </table>
+          </div>
+        </div>
+
+        <div class="text-sm muted">Uploaded file will be validated before applying bulk tax changes. Validation checks
+          headers and basic HSN format (demo).</div>
+      </div>
+    </section>
+
+    </main>
+
+    <!-- Modern Footer -->
   <footer
     class="glass-effect mx-4 mb-4 p-6 rounded-2xl shadow-xl text-center transition-all duration-500 ease-out lg:ml-72">
     <div class="flex flex-col md:flex-row items-center justify-between space-y-4 md:space-y-0">
