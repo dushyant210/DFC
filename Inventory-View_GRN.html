@@ -183,82 +183,217 @@
           </ul>
         </li>
 
-        <!-- Orders -->
+<!-- Orders -->
+<li>
+    <a id="ordersToggle" aria-expanded="false" class="flex items-center py-4 px-4 rounded-2xl">
+        <div class="w-10 h-10 bg-slate-600 rounded-xl flex items-center justify-center mr-4">
+            <i class="fas fa-shopping-bag text-sm"></i>
+        </div>
+        <span class="font-medium">Orders</span>
+        <i id="ordersChev" class="fas fa-chevron-down chev ml-auto text-sm"></i>
+    </a>
+    <ul id="ordersSubmenu" class="ml-6 mt-2 space-y-1 submenu submenu-hidden" data-open="false">
         <li>
-          <a id="ordersToggle" aria-expanded="false" class="flex items-center py-4 px-4 rounded-2xl">
-            <div class="w-10 h-10 bg-slate-600 rounded-xl flex items-center justify-center mr-4">
-              <i class="fas fa-shopping-bag text-sm"></i>
-            </div>
-            <span class="font-medium">Orders</span>
-            <i id="ordersChev" class="fas fa-chevron-down chev ml-auto text-sm"></i>
-          </a>
-          <ul id="ordersSubmenu" class="ml-6 mt-2 space-y-1 submenu submenu-hidden" data-open="false">
-            <li>
-              <a href="fulfillment-plan.html" class="flex items-center py-2 px-4 rounded-xl">
+            <a href="Orders-Fulfillment_Plan.html" class="flex items-center py-2 px-4 rounded-xl">
                 <div class="w-2 h-2 rounded-full mr-3"></div>
                 <span class="text-sm">Fulfillment Plan</span>
-              </a>
-            </li>
-            <!-- Add other orders submenu items similarly -->
-          </ul>
+            </a>
         </li>
-
-
-
-        <!-- Reports -->
         <li>
-          <a id="reportsToggle" aria-expanded="false" class="flex items-center py-4 px-4 rounded-2xl">
-            <div class="w-10 h-10 bg-slate-600 rounded-xl flex items-center justify-center mr-4">
-              <i class="fas fa-chart-bar text-sm"></i>
-            </div>
-            <span class="font-medium">Reports</span>
-            <i id="reportsChev" class="fas fa-chevron-down chev ml-auto text-sm"></i>
-          </a>
-          <ul id="reportsSubmenu" class="ml-6 mt-2 space-y-1 submenu submenu-hidden" data-open="false">
-            <li>
-              <a href="pending-fresh-orders.html" class="flex items-center py-2 px-4 rounded-xl">
+            <a href="Orders-Partial_Order_Accept.html" class="flex items-center py-2 px-4 rounded-xl">
+                <div class="w-2 h-2 rounded-full mr-3"></div>
+                <span class="text-sm">Partial Order Accept</span>
+            </a>
+        </li>
+        <li>
+            <a href="Orders-Partial_Fulfillment.html" class="flex items-center py-2 px-4 rounded-xl">
+                <div class="w-2 h-2 rounded-full mr-3"></div>
+                <span class="text-sm">Partial Fulfillment</span>
+            </a>
+        </li>
+        <li>
+            <a href="Orders-Bulk_Fulfillment_Plan.html" class="flex items-center py-2 px-4 rounded-xl">
+                <div class="w-2 h-2 rounded-full mr-3"></div>
+                <span class="text-sm">Bulk Fulfillment Plan</span>
+            </a>
+        </li>
+        <li>
+            <a href="Orders-Pick_List.html" class="flex items-center py-2 px-4 rounded-xl">
+                <div class="w-2 h-2 rounded-full mr-3"></div>
+                <span class="text-sm">Pick List</span>
+            </a>
+        </li>
+        <li>
+            <a href="Orders-Generate_Order_Form.html" class="flex items-center py-2 px-4 rounded-xl">
+                <div class="w-2 h-2 rounded-full mr-3"></div>
+                <span class="text-sm">Generate Order Form</span>
+            </a>
+        </li>
+        <li>
+            <a href="Orders-Sku_Price_Breakup.html" class="flex items-center py-2 px-4 rounded-xl">
+                <div class="w-2 h-2 rounded-full mr-3"></div>
+                <span class="text-sm">Sku Price Breakup</span>
+            </a>
+        </li>
+        <li>
+            <a href="Orders-Manifest_Scanning.html" class="flex items-center py-2 px-4 rounded-xl">
+                <div class="w-2 h-2 rounded-full mr-3"></div>
+                <span class="text-sm">Manifest Scanning</span>
+            </a>
+        </li>
+        <li>
+            <a href="Orders-Digital_Invoice.html" class="flex items-center py-2 px-4 rounded-xl">
+                <div class="w-2 h-2 rounded-full mr-3"></div>
+                <span class="text-sm">Digital Invoice</span>
+            </a>
+        </li>
+        <li>
+            <a href="Orders-Hand_Over_To_Courier.html" class="flex items-center py-2 px-4 rounded-xl">
+                <div class="w-2 h-2 rounded-full mr-3"></div>
+                <span class="text-sm">Hand Over To Courier</span>
+            </a>
+        </li>
+        <li>
+            <a href="Orders-Hold_Suborders.html" class="flex items-center py-2 px-4 rounded-xl">
+                <div class="w-2 h-2 rounded-full mr-3"></div>
+                <span class="text-sm">Hold Suborders</span>
+            </a>
+        </li>
+    </ul>
+</li>
+
+<!-- Reports -->
+<li>
+    <a id="reportsToggle" aria-expanded="false" class="flex items-center py-4 px-4 rounded-2xl">
+        <div class="w-10 h-10 bg-slate-600 rounded-xl flex items-center justify-center mr-4">
+            <i class="fas fa-chart-bar text-sm"></i>
+        </div>
+        <span class="font-medium">Reports</span>
+        <i id="reportsChev" class="fas fa-chevron-down chev ml-auto text-sm"></i>
+    </a>
+    <ul id="reportsSubmenu" class="ml-6 mt-2 space-y-1 submenu submenu-hidden" data-open="false">
+        <li>
+            <a href="Reports-Pending_Fresh_Orders.html" class="flex items-center py-2 px-4 rounded-xl">
                 <div class="w-2 h-2 rounded-full mr-3"></div>
                 <span class="text-sm">Pending Fresh Orders</span>
-              </a>
-            </li>
-            <!-- Add other report submenu items -->
-          </ul>
+            </a>
         </li>
-
-        <!-- Search -->
         <li>
-          <a href="search.html" class="flex items-center py-4 px-4 rounded-2xl">
-            <div class="w-10 h-10 bg-slate-600 rounded-xl flex items-center justify-center mr-4">
-              <i class="fas fa-search text-sm"></i>
-            </div>
-            <span class="font-medium">Search</span>
-          </a>
+            <a href="Reports-Pending_Replacement.html" class="flex items-center py-2 px-4 rounded-xl">
+                <div class="w-2 h-2 rounded-full mr-3"></div>
+                <span class="text-sm">Pending Replacement</span>
+            </a>
         </li>
-
-        <!-- Help -->
         <li>
-          <a id="helpToggle" aria-expanded="false" class="flex items-center py-4 px-4 rounded-2xl">
-            <div class="w-10 h-10 bg-slate-600 rounded-xl flex items-center justify-center mr-4">
-              <i class="fas fa-question-circle text-sm"></i>
-            </div>
-            <span class="font-medium">Help</span>
-            <i id="helpChev" class="fas fa-chevron-down chev ml-auto text-sm"></i>
-          </a>
-          <ul id="helpSubmenu" class="ml-6 mt-2 space-y-1 submenu submenu-hidden" data-open="false">
-            <li>
-              <a href="help.html" class="flex items-center py-2 px-4 rounded-xl">
+            <a href="Reports-Fulfilled_Orders.html" class="flex items-center py-2 px-4 rounded-xl">
+                <div class="w-2 h-2 rounded-full mr-3"></div>
+                <span class="text-sm">Fulfilled Orders</span>
+            </a>
+        </li>
+        <li>
+            <a href="Reports-Fulfilled_Orders_GST.html" class="flex items-center py-2 px-4 rounded-xl">
+                <div class="w-2 h-2 rounded-full mr-3"></div>
+                <span class="text-sm">Fulfilled Orders with GST</span>
+            </a>
+        </li>
+        <li>
+            <a href="Reports-Inventory.html" class="flex items-center py-2 px-4 rounded-xl">
+                <div class="w-2 h-2 rounded-full mr-3"></div>
+                <span class="text-sm">Inventory</span>
+            </a>
+        </li>
+        <li>
+            <a href="Reports-Inventory_Approval_Log.html" class="flex items-center py-2 px-4 rounded-xl">
+                <div class="w-2 h-2 rounded-full mr-3"></div>
+                <span class="text-sm">Inventory Approval Log</span>
+            </a>
+        </li>
+        <li>
+            <a href="Reports-Order_Status.html" class="flex items-center py-2 px-4 rounded-xl">
+                <div class="w-2 h-2 rounded-full mr-3"></div>
+                <span class="text-sm">Order Status</span>
+            </a>
+        </li>
+        <li>
+            <a href="Reports-Warehouse.html" class="flex items-center py-2 px-4 rounded-xl">
+                <div class="w-2 h-2 rounded-full mr-3"></div>
+                <span class="text-sm">Warehouse</span>
+            </a>
+        </li>
+        <li>
+            <a href="Reports-Invoice.html" class="flex items-center py-2 px-4 rounded-xl">
+                <div class="w-2 h-2 rounded-full mr-3"></div>
+                <span class="text-sm">Invoice</span>
+            </a>
+        </li>
+        <li>
+            <a href="Reports-RTO_Status.html" class="flex items-center py-2 px-4 rounded-xl">
+                <div class="w-2 h-2 rounded-full mr-3"></div>
+                <span class="text-sm">RTO Status</span>
+            </a>
+        </li>
+        <li>
+            <a href="Reports-RBC_Status.html" class="flex items-center py-2 px-4 rounded-xl">
+                <div class="w-2 h-2 rounded-full mr-3"></div>
+                <span class="text-sm">RBC Status</span>
+            </a>
+        </li>
+        <li>
+            <a href="Reports-Orders_On_Hold.html" class="flex items-center py-2 px-4 rounded-xl">
+                <div class="w-2 h-2 rounded-full mr-3"></div>
+                <span class="text-sm">Orders On Hold</span>
+            </a>
+        </li>
+        <li>
+            <a href="Reports-Order_Pendency.html" class="flex items-center py-2 px-4 rounded-xl">
+                <div class="w-2 h-2 rounded-full mr-3"></div>
+                <span class="text-sm">Order Pendency</span>
+            </a>
+        </li>
+        <li>
+            <a href="Reports-Finance_Revenue_Report.html" class="flex items-center py-2 px-4 rounded-xl">
+                <div class="w-2 h-2 rounded-full mr-3"></div>
+                <span class="text-sm">Finance Revenue Report</span>
+            </a>
+        </li>
+    </ul>
+</li>
+
+<!-- Search -->
+<li>
+    <a href="Search.html" class="flex items-center py-4 px-4 rounded-2xl">
+        <div class="w-10 h-10 bg-slate-600 rounded-xl flex items-center justify-center mr-4">
+            <i class="fas fa-search text-sm"></i>
+        </div>
+        <span class="font-medium">Search</span>
+    </a>
+</li>
+
+<!-- Help -->
+<li>
+    <a id="helpToggle" aria-expanded="false" class="flex items-center py-4 px-4 rounded-2xl">
+        <div class="w-10 h-10 bg-slate-600 rounded-xl flex items-center justify-center mr-4">
+            <i class="fas fa-question-circle text-sm"></i>
+        </div>
+        <span class="font-medium">Help</span>
+        <i id="helpChev" class="fas fa-chevron-down chev ml-auto text-sm"></i>
+    </a>
+    <ul id="helpSubmenu" class="ml-6 mt-2 space-y-1 submenu submenu-hidden" data-open="false">
+        <li>
+            <a href="Help-Help.html" class="flex items-center py-2 px-4 rounded-xl">
                 <div class="w-2 h-2 rounded-full mr-3"></div>
                 <span class="text-sm">Help</span>
-              </a>
-            </li>
-            <li>
-              <a href="contact-us.html" class="flex items-center py-2 px-4 rounded-xl">
+            </a>
+        </li>
+        <li>
+            <a href="Help-Contact_Us.html" class="flex items-center py-2 px-4 rounded-xl">
                 <div class="w-2 h-2 rounded-full mr-3"></div>
                 <span class="text-sm">Contact Us</span>
-              </a>
-            </li>
-          </ul>
+            </a>
         </li>
+    </ul>
+</li>
+
 
       </ul>
 
